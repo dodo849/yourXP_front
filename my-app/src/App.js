@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import {
+  MediaDiv,
+  Footer,
+  Main,
+} from './styledComponenet';
+import Header from './Header';
+import ShowPost from './ShowPost';
+import ShowReview from './ShowReview';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MediaDiv>
+        <Header/>
+        <Main>
+          <ShowPost/>
+          <ShowReview/>
+        </Main>
+        <Footer>
+          <p>ⓒ멋쟁이사자처럼 10th at 경상국립대<br/>강경아 강지희 김민지 박재욱 박경훈 송채율 이도연 이재성</p>
+        </Footer>
+      </MediaDiv>
+    </>
+
   );
 }
 
