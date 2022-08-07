@@ -80,7 +80,7 @@ export const Banner = styled.div`
 `;
 
 export const BannerContent = styled.h1`
-  padding: 150px 120px;
+  padding: 120px 120px;
 `;
 
 export const BannerTitle = styled.div`
@@ -101,7 +101,7 @@ export const BannerTitleTextGreen = styled.h1`
   margin: 0;
 `;
 
-export const BannerBodyText = styled.p`
+export const BannerDescription = styled.p`
   margin: 15px 0 0 0;
   font-size: 16px;
   color: white;
@@ -148,4 +148,48 @@ export const BannerButton = styled.button`
     animation: ${buttonUp} 0.3s ease-in-out forwards;
     cursor: pointer;
   }
+`;
+
+// Ranking
+export const RankingContent = styled.div`
+  width: 1024px;
+  margin: 0 auto;
+`;
+
+export const RankingIntro = styled.div`
+  margin-top: 200px;
+`;
+
+export const ContentType = styled.h4`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #767676;
+  text-align: center;
+  margin: 0;
+`;
+
+export const RankingTitle = styled.h1`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  color: #000000;
+  text-align: center;
+  margin: 5px 0 0 0;
+`;
+
+export const RankingDescription = styled.h3`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  margin: 10px 0 0 0;
+`;
+
+export const RankingCards = styled.div`
+  display: flex;
+  margin: 60px auto;
+  gap: 20px;
+  justify-content: center;
 `;
