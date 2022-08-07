@@ -13,6 +13,7 @@ import ProfileImg from "./img/profile1.jpg";
 
 function MainPage() {
   return (
+    <>
     <Banner>
       <BannerContent>
         <BannerTitle>
@@ -27,6 +28,7 @@ function MainPage() {
         <BannerButton>경험 올리기</BannerButton>
       </BannerContent>
     </Banner>
+    </>
   );
 }
 

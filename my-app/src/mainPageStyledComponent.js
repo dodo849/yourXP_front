@@ -1,7 +1,74 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import bannerImg from "./img/main-banner-image.png";
 
+// animation define
+
+const buttonUp = keyframes`
+  0% {
+    background: rgba(67, 159, 104, 0.6);
+    position: relative;
+    top: 0px;
+    left: 0px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.0);
+  }
+  100% {
+    background: rgba(67, 159, 104, 1);
+    position: relative;
+    top: -5px;
+    left: -5px;
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.15);
+  }
+`;
+const buttonDown = keyframes`
+  0% {
+    background: rgba(67, 159, 104, 1);
+    position: relative;
+    top: -5px;
+    left: -5px;
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    background: rgba(67, 159, 104, 0.6);
+    position: relative;
+    top: 0px;
+    left: 0px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.0);
+  }
+`;
+
+const inputUp = keyframes`
+  0% {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.0);
+  }
+  100% {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.15);
+  }
+`;
+const inputDown = keyframes`
+  0% {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.0);
+  }
+`;
 
 //main page
 export const Banner = styled.div`
@@ -46,14 +113,17 @@ export const BannerInput = styled.textarea`
   width: 520px;
   height: 180px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid #439f68;
   color: white;
   font-weight: 400;
   padding: 20px;
+  resize: none;
+  animation: ${inputDown} 0.3s ease-in-out forwards;
 
   &:focus {
     outline: none; // 활성화 효과 빼기
+    animation: ${inputUp} 0.3s ease-in-out forwards;
   }
 
   &::-webkit-input-placeholder {
@@ -68,8 +138,14 @@ export const BannerButton = styled.button`
   background: rgba(67, 159, 104, 0.6);
   border-radius: 10px;
   color: white;
-  padding: 10px 15px;
+  padding: 15px 20px;
   border: 0px solid #439f68;
   font-size: 16px;
   font-weight: 500;
+  animation: ${buttonDown} 0.3s ease-in-out forwards;
+
+  &:hover {
+    animation: ${buttonUp} 0.3s ease-in-out forwards;
+    cursor: pointer;
+  }
 `;
