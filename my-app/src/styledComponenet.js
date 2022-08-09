@@ -626,3 +626,9 @@ export const Footer = styled.div`
         color: #767676;
     }
 `;
+
+
+export const TestStyle = styled.div`
+    color: red;
+    border: 1px solid black;
+`;
