@@ -6,14 +6,14 @@ import bannerImg from "./img/main-banner-image.png";
 
 const buttonUp = keyframes`
   0% {
-    background: rgba(67, 159, 104, 0.6);
+    // background: rgba(67, 159, 104, 0.6);
     position: relative;
     top: 0px;
     left: 0px;
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.0);
   }
   100% {
-    background: rgba(67, 159, 104, 1);
+    // background: rgba(67, 159, 104, 1);
     position: relative;
     top: -5px;
     left: -5px;
@@ -22,14 +22,14 @@ const buttonUp = keyframes`
 `;
 const buttonDown = keyframes`
   0% {
-    background: rgba(67, 159, 104, 1);
+    // background: rgba(67, 159, 104, 1);
     position: relative;
     top: -5px;
     left: -5px;
     box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.15);
   }
   100% {
-    background: rgba(67, 159, 104, 0.6);
+    // background: rgba(67, 159, 104, 0.6);
     position: relative;
     top: 0px;
     left: 0px;
@@ -70,7 +70,50 @@ const inputDown = keyframes`
   }
 `;
 
-//main page
+// button
+
+export const Button = styled.button`
+  font-family: "Noto Sans KR";
+  margin-top: 25px;
+  display: block;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 20px;
+  border: 0px solid #439f68;
+  font-size: 16px;
+  font-weight: 500;
+  animation: ${buttonDown} 0.3s ease-in-out forwards;
+
+  &:hover {
+    animation: ${buttonUp} 0.3s ease-in-out forwards;
+    cursor: pointer;
+  }
+`;
+
+export const TranslucentButton = styled(Button)`
+  background: rgba(67, 159, 104, 0.6);  
+`;
+
+export const FillButton = styled(Button)`
+  background: rgba(67, 159, 104, 1);  
+`;
+
+export const LightButton = styled(Button)`
+  background: #D9ECE1;
+  color: #439F68;
+`;
+
+
+export const ButtonRowGroup = styled.div`
+display: flex;
+margin: 40px auto;
+gap: 20px;
+justify-content: center;
+`;
+
+
+//main page banner
+
 export const Banner = styled.div`
   width: 100vw;
   height: 720px;
@@ -131,32 +174,14 @@ export const BannerInput = styled.textarea`
   }
 `;
 
-export const BannerButton = styled.button`
-  font-family: "Noto Sans KR";
-  margin-top: 25px;
-  display: block;
-  background: rgba(67, 159, 104, 0.6);
-  border-radius: 10px;
-  color: white;
-  padding: 15px 20px;
-  border: 0px solid #439f68;
-  font-size: 16px;
-  font-weight: 500;
-  animation: ${buttonDown} 0.3s ease-in-out forwards;
 
-  &:hover {
-    animation: ${buttonUp} 0.3s ease-in-out forwards;
-    cursor: pointer;
-  }
-`;
-
-// Ranking
+// Content (Ranking)
 export const RankingContent = styled.div`
   width: 1024px;
   margin: 0 auto;
 `;
 
-export const RankingIntro = styled.div`
+export const ContentIntro = styled.div`
   margin-top: 200px;
 `;
 
@@ -169,7 +194,7 @@ export const ContentType = styled.h4`
   margin: 0;
 `;
 
-export const RankingTitle = styled.h1`
+export const ContentTitle = styled.h1`
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -178,7 +203,7 @@ export const RankingTitle = styled.h1`
   margin: 5px 0 0 0;
 `;
 
-export const RankingDescription = styled.h3`
+export const ContentDescription = styled.h3`
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

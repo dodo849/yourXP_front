@@ -7,13 +7,16 @@ import {
   BannerTitle,
   BannerDescription,
   BannerInput,
-  BannerButton,
+  TranslucentButton,
   RankingContent,
-  RankingIntro,
+  ContentIntro,
   ContentType,
-  RankingTitle,
-  RankingDescription,
+  ContentTitle,
+  ContentDescription,
   RankingCards,
+  FillButton,
+  LightButton,
+  ButtonRowGroup,
 } from "./mainPageStyle";
 import RankingCard from "./RankingCard";
 
@@ -46,24 +49,36 @@ function MainPage() {
             어떤 경험을 하셨나요? 당신만의 특별한 경험을 들려주세요
           </BannerDescription>
           <BannerInput placeholder="여기에 당신의 경험을 써주세요"></BannerInput>
-          <BannerButton>경험 올리기</BannerButton>
+          <TranslucentButton>경험 올리기</TranslucentButton>
         </BannerContent>
       </Banner>
 
       <RankingContent>
-        <RankingIntro>
+        <ContentIntro>
           <ContentType>경험 둘러보기</ContentType>
-          <RankingTitle>이번달 랭킹 Top 10</RankingTitle>
-          <RankingDescription>
+          <ContentTitle>이번달 랭킹 Top 10</ContentTitle>
+          <ContentDescription>
             이번달 가장 핫한 경험을 구경해보세요
-          </RankingDescription>
-        </RankingIntro>
+          </ContentDescription>
+        </ContentIntro>
         <RankingCards>
-        {rakingContent.map((item) => (
-          <RankingCard title={item.title} tag={item.tag}></RankingCard>
-        ))}
+          {rakingContent.map((item) => (
+            <RankingCard title={item.title} tag={item.tag}></RankingCard>
+          ))}
         </RankingCards>
       </RankingContent>
+
+      <RankingContent>
+        <ContentIntro>
+          <ContentTitle>지금 참여해주세요</ContentTitle>
+        </ContentIntro>
+        <ButtonRowGroup>
+          <FillButton>경험 들려주기</FillButton>
+          <LightButton>경험 물어보기</LightButton>
+        </ButtonRowGroup>
+      </RankingContent>
+
+
     </>
   );
 }

@@ -14,7 +14,7 @@ import MainPage from'./MainPage';
 function App() {
   return (
     <>
-      <MainPage/>
+      {/* <MainPage/> */}
       <MediaDiv>
         <Header/>
         <Main>
