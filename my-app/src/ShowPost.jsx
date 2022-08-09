@@ -18,7 +18,7 @@ import {
     BuyPreInfo,
     BuyPreNum,
     BuyPreDiv,
-    BuyButton,
+    GreenButton,
 } from './styledComponenet';
 import ProfileImg from './img/profile1.jpg';
 
@@ -66,7 +66,7 @@ function ShowPost() {
                             <BuyPreNum>10장</BuyPreNum>
                         </BuyPre>
                     </BuyPreDiv>
-                    <BuyButton>구매하기</BuyButton>
+                    <GreenButton>구매하기</GreenButton>
                 </PostBuy>
             </PostBuyDiv>
         </PostSection>
