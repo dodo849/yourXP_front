@@ -8,7 +8,7 @@ import {
 import Header from './Header';
 import ShowPost from './ShowPost';
 import ShowReview from './ShowReview';
-import Test from'./Test';
+import SignUp from './SignUp';
 import MainPage from'./MainPage';
 
 function App() {
@@ -18,9 +18,12 @@ function App() {
       <MediaDiv>
         <Header/>
         <Main>
+
+          <SignUp/>
           <ShowPost/>
           <ShowReview/>
           {/* <Test/> */}
+
         </Main>
         <Footer>
           <p>ⓒ멋쟁이사자처럼 10th at 경상국립대<br/>강경아 강지희 김민지 박재욱 박경훈 송채율 이도연 이재성</p>

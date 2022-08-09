@@ -1,0 +1,93 @@
+ul,li {
+    list-style: none;
+}
+
+.register{
+  width:800px;
+  margin-left: auto;
+  margin-right: 2000px;
+  margin-bottom: 100px;
+  padding: 15px 20px;
+  background: white;
+  color: #2b2e4a;
+  font-size: 20px;
+  text-align: center;
+}
+.register h2{
+  font-size: 40px;
+  margin-bottom: 50px;
+  padding : 20px;
+  color : #439F68;
+  font-weight: bold;
+  opacity: 100%;
+  
+}
+.register input{
+        width: 90%;
+        height: 40px;
+        outline: none;
+        padding: 5px;
+        padding-left: 25px;
+        border: 1.5px solid #767676;
+        transition: 0.3s;
+        border-radius: 10px;
+        color: #767676;
+        font-size: 20px;
+        opacity: 150%;
+}
+    .register .center{
+        
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        margin-right:45px;
+        color: #000000;
+        font-weight: bolder;
+       
+        
+}
+
+.register .flex{
+    display: flex; 
+    flex-direction: column;
+    margin-top: 50px;
+    
+    
+    
+
+    
+    
+}
+
+.register .flex .container{
+    display: grid;
+    grid-template-columns: 2.5fr 8fr 0.5fr  ;
+    margin-bottom: 10px;
+
+}
+
+.register .button{
+    width: 120px;
+    height: 60px;
+    color: #ffff;
+    border: none;
+    border-radius: 10px;
+    background: #439F68;
+    transition: 0.3s;
+    font-size: 20px;
+    margin-right: 150px;
+    margin-top: 20px;
+}
+
+.register .button:hover{
+    width: 120px;
+    height: 60px;
+    border: none;
+    
+    color: #ffff;
+    background: #7BC799;
+}
+
+.register .SignUpTitle{
+    border-bottom: 1px solid #BFBFBF ;
+}
