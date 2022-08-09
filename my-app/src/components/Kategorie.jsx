@@ -3,18 +3,18 @@ import {
     KategorieDiv,
     KategorieButton,
     BigTag,
-} from './styledComponenet';
+} from '../css/styledComponenet';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 
 //svg 파일 사용해야하는데 임시로 png파일 사용
-import KateIcon1 from './img/icon/license.png';
-import KateIcon2 from './img/icon/job.png';
-import KateIcon3 from './img/icon/fitness.png';
-import KateIcon4 from './img/icon/travel.png';
-import KateIcon5 from './img/icon/etc.png';
+import KateIcon1 from '../img/icon/license.png';
+import KateIcon2 from '../img/icon/job.png';
+import KateIcon3 from '../img/icon/fitness.png';
+import KateIcon4 from '../img/icon/travel.png';
+import KateIcon5 from '../img/icon/etc.png';
 
 function Kategorie() {
     return (

@@ -3,10 +3,10 @@ import {
     MediaDiv,
     Footer,
     Main2,
-    } from '../styledComponenet';
-import Header from '../Header_2';
-import Kategorie from '../Kategorie';
-import PostList from '../PostList';
+    } from '../css/styledComponenet';
+import Header from '../components/Header_2';
+import Kategorie from '../components/Kategorie';
+import PostList from '../components/PostList';
 
 
 function SellPostList() {

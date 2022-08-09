@@ -5,8 +5,6 @@ import { Routes, Route } from 'react-router-dom';
 import SellPostList from './pages/SellPostList';
 import SellShowPost from './pages/SellShowPost';
 import SellAllPost from './pages/SellAllPost';
-import SignUp from './SignUp';
-import MainPage from'./MainPage';
 
 //페이지이름변경가능
 function App() {

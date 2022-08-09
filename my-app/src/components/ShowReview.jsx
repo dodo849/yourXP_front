@@ -8,7 +8,7 @@ import {
     Reviewer,
     ReviewGrade,
     ReviewStar,
-} from './styledComponenet';
+} from '../css/styledComponenet';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';

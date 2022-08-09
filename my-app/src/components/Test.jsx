@@ -1,6 +1,6 @@
 import {
     TestStyle
-} from './styledComponenet';
+} from '../css/styledComponenet';
 
 
 function Test() {

@@ -16,14 +16,14 @@ import {
     HeartDiv,
     ListHeart,
     GreenButton,
-} from './styledComponenet';
-import ProfileImg from './img/profile1.jpg';
+} from '../css/styledComponenet';
+import ProfileImg from '../img/profile1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
-import PostImg1 from './img/la.jpg';
-import PostImg2 from './img/la2.jpg';
+import PostImg1 from '../img/la.jpg';
+import PostImg2 from '../img/la2.jpg';
 
 function ShowAllPost() {
 

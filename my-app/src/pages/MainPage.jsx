@@ -18,7 +18,7 @@ import {
   LightButton,
   ButtonRowGroup,
 } from "./mainPageStyle";
-import RankingCard from "./RankingCard";
+import RankingCard from "../components/RankingCard";
 
 function MainPage() {
   let rakingContent = [

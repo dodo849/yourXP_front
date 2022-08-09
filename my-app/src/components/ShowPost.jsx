@@ -19,8 +19,8 @@ import {
     BuyPreNum,
     BuyPreDiv,
     GreenButton,
-} from './styledComponenet';
-import ProfileImg from './img/profile1.jpg';
+} from '../css/styledComponenet';
+import ProfileImg from '../img/profile1.jpg';
 
 function ShowPost() {
     return (

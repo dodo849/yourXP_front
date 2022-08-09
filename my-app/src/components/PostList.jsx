@@ -19,14 +19,14 @@ import {
     ListPrice,
     MoreDiv,
     GrayButton,
-    } from './styledComponenet';
+    } from '../css/styledComponenet';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 import { faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
-import PostTitleImg1 from './img/la.jpg';
-import PostTitleImg2 from './img/santiago.jpg';
-import PostTitleImg3 from './img/google.jpg';
+import PostTitleImg1 from '../img/la.jpg';
+import PostTitleImg2 from '../img/santiago.jpg';
+import PostTitleImg3 from '../img/google.jpg';
 
 function PostList() {
     return (

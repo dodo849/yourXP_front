@@ -3,10 +3,10 @@ import {
     MediaDiv,
     Footer,
     Main,
-} from '../styledComponenet';
-import Header from '../Header_1';
-import ShowPost from '../ShowPost';
-import ShowReview from '../ShowReview';
+} from '../css/styledComponenet';
+import Header from '../components/Header_1';
+import ShowPost from '../components/ShowPost';
+import ShowReview from '../components/ShowReview';
 
 function SellShowPost() {
     return (
