@@ -1,29 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import {
-  MediaDiv,
-  Footer,
-  Main,
-} from './styledComponenet';
-import Header from './Header';
-import ShowPost from './ShowPost';
-import ShowReview from './ShowReview';
+import React from 'react'
+import { Routes, Route } from 'react-router-dom';
+import SellPostList from './pages/SellPostList';
+import SellShowPost from './pages/SellShowPost';
+import SellAllPost from './pages/SellAllPost';
 
 function App() {
   return (
-    <>
-      <MediaDiv>
-        <Header/>
-        <Main>
-          <ShowPost/>
-          <ShowReview/>
-        </Main>
-        <Footer>
-          <p>ⓒ멋쟁이사자처럼 10th at 경상국립대<br/>강경아 강지희 김민지 박재욱 박경훈 송채율 이도연 이재성</p>
-        </Footer>
-      </MediaDiv>
-    </>
-
+    <Routes>
+      <Route path='/selllist' element={<SellPostList/>}></Route>
+      <Route path='/sellpost' element={<SellShowPost/>}></Route>
+      <Route path='/sellpostone' element={<SellAllPost/>}></Route>
+    </Routes>
   );
 }
 
