@@ -41,10 +41,7 @@ function Header() {
                     <p>경험 둘러보기</p>
                     <p>궁금한 경험들</p>
                 </NavTitle>
-                <Navbar>
-                    <div style={boxstyle}> </div>
-                    <hr/>
-                </Navbar>
+                
             </NavbarDiv>
         </HeaderDiv>
     )
