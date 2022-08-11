@@ -14,6 +14,7 @@ import {
 import ToggledArrow from "../components/ToggledArrow";
 
 import { useState } from "react";
+import LoginModal from "../components/LoginModal";
 
 function MyPage() {
   // dummy data
@@ -56,6 +57,7 @@ function MyPage() {
 
   return (
     <>
+    <LoginModal/>
       <MyPageTitle><h1>마이페이지</h1></MyPageTitle>
       <MyPageContainer>
         <LeftContainer>

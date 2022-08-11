@@ -76,7 +76,7 @@ export const BottomBorderContainer = styled.div`
 
   button {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     color: #439f68;
     border: 0px solid white;
     background-color: white;
