@@ -20,11 +20,18 @@ import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 
 import NavBar from '../components/NavBar';
 import Kategorie from '../components/Kategorie';
-import PostList from '../components/PostList';
+import PostList from '../components/PostListB'
 
+function BuyPostList() {
+    const boxstyle = {
+        width: '125px',
+        height: '7px',
+        backgroundColor: '#5CBE81'
+    };
 
-function SellPostList() {
-
+    const Navstyle = {
+        color: '#000000',
+    };
 
     return (
         <MediaDiv>
@@ -42,9 +49,10 @@ function SellPostList() {
                         </Sign>
                     </SearchSign>  
                 </TopDiv>
+
                 <MenuInfo>
-                    <InfoBig>여러 경험들을 <span>구경하고 공유해요</span></InfoBig>
-                    <InfoSmall>어떤 경험들이 궁금하신가요? 당신만의 특별한 경험을 알려주고, 다른 사람들의 경험도 둘러보세요!</InfoSmall>
+                    <InfoBig>당신의 경험을 <span>알려주세요</span></InfoBig>
+                    <InfoSmall>궁금한 경험들을 물어보고 채팅으로 답을 받아보세요!</InfoSmall>
                 </MenuInfo>
                 <NavBar/>
             </Header>
@@ -53,6 +61,7 @@ function SellPostList() {
                 <Kategorie/>
                 <PostList/>
             </ListMain>
+
             <Footer>
                 <p>ⓒ멋쟁이사자처럼 10th at 경상국립대<br/>강경아 강지희 김민지 박재욱 박경훈 송채율 이도연 이재성</p>
             </Footer>
@@ -60,4 +69,4 @@ function SellPostList() {
     )
 }
 
-export default SellPostList;
+export default BuyPostList

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import bannerImg from "./img/main-banner-image.png";
+import bannerImg from "../img/main-banner-image.png";
 
 // animation define
 

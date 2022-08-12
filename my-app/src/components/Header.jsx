@@ -1,14 +1,14 @@
 import React from 'react'
+
 import {
     HeaderDiv,
     TopDiv,
     SearchSign,
     Search,
     Sign,
-    NavbarDiv,
-    NavTitle,
-    Navbar,
 } from '../css/styledComponenet';
+
+import NavBar from './NavBar';
 
 import Logo from '../img/logo.png';
 
@@ -33,7 +33,7 @@ function Header() {
                 <SearchSign>
                     <Search>
                         <input type="text" placeholder='어떤 경험을 찾고 계신가요?' />
-                        <FontAwesomeIcon icon={faSistrix} size='lg'color='#439F68'/>
+                        <FontAwesomeIcon icon={faSistrix} size='lg'color='#439F68'cursor='pointer'/>
                     </Search>
                     <Sign>
                         <p>로그인</p>
@@ -41,13 +41,7 @@ function Header() {
                     </Sign>
                 </SearchSign>  
             </TopDiv>
-            <NavbarDiv>
-                <NavTitle>
-                    <p style={Navstyle}>경험 둘러보기</p>
-                    <p>궁금한 경험들</p>
-                </NavTitle>
-                
-            </NavbarDiv>
+            <NavBar/>
         </HeaderDiv>
     )
 }

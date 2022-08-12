@@ -19,12 +19,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 
 import NavBar from '../components/NavBar';
-import ShowAllPost from '../components/ShowAllPost';
-import WriteReview from '../components/WriteReview';
-import Moremodal from '../components/MoreModal';
+import WonderPost from '../components/WonderPost';
 
-function SellAllPost() {
-    return (        <>
+function BuyAllPost() {
+    return (
+        <>
             <MediaDiv>
                 <Header>
                     <TopDiv>
@@ -42,24 +41,22 @@ function SellAllPost() {
                     </TopDiv>
 
                     <MenuInfo>
-                        <InfoBig>여러 경험을 <span>들어봐요</span></InfoBig>
-                        <InfoSmall>다른 사람의 경험을 읽고 반응을 남겨주세요!</InfoSmall>
+                        <InfoBig>당신의 경험이 <span>필요해요</span></InfoBig>
+                        <InfoSmall>자신의 경험을 사람들에게 채팅으로 알려주세요!</InfoSmall>
                     </MenuInfo>
                     <NavBar/>
                 </Header>
 
                 <Main>
-                    <ShowAllPost/>
-                    <WriteReview/>
-                    <Moremodal/>
+                    <WonderPost/>
                 </Main>
+
                 <Footer>
                     <p>ⓒ멋쟁이사자처럼 10th at 경상국립대<br/>강경아 강지희 김민지 박재욱 박경훈 송채율 이도연 이재성</p>
                 </Footer>
             </MediaDiv>
         </>
-
     )
 }
 
-export default SellAllPost
+export default BuyAllPost
