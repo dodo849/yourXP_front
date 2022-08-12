@@ -7,11 +7,15 @@ import SellShowPost from './pages/SellShowPost';
 import SellAllPost from './pages/SellAllPost';
 import BuyPostList from './pages/BuyPostList';
 import BuyAllPost from './pages/BuyAllPost';
+import MainPage from './pages/MainPage';
+import MyPage from './pages/MyPage';
 
 //페이지이름변경가능
 function App() {
   return (
     <Routes>
+      <Route path='/' element={<MainPage/>}></Route>
+      <Route path='/mypage' element={<MyPage/>}></Route>
       <Route path='/selllist' element={<SellPostList/>}></Route>
       <Route path='/selllist/post' element={<SellShowPost/>}></Route>
       <Route path='/selllist/post/1' element={<SellAllPost/>}></Route>
