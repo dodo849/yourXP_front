@@ -1,13 +1,13 @@
 import React from 'react'
 import { 
-  GreenButton,
   ReviewSection,
   ReviewTitle,
   ReviewBox,
-  ReviewContent,
+  Reviewinput,
   ReviewInfo2,
   ReviewStar,
-  } from '../css/styledComponenet';
+  } from '../css/PostStyle';
+import { GreenButton } from "../css/styledComponenet";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
@@ -17,7 +17,7 @@ function WriteReview() {
     <ReviewSection>
       <ReviewTitle>후기 작성</ReviewTitle>
       <ReviewBox>
-          <input type="text" placeholder='들은 경험에 대한 후기를 남겨주세요!' />
+          <Reviewinput placeholder='들은 경험에 대한 후기를 남겨주세요!' />
           <ReviewInfo2>
               <ReviewStar>
                   <FontAwesomeIcon icon={faStar} size='2x' color='#BADC34'/>

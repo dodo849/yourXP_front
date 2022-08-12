@@ -18,8 +18,8 @@ import {
     BuyPreInfo,
     BuyPreNum,
     BuyPreDiv,
-    GreenButton,
-} from '../css/styledComponenet';
+} from '../css/PostStyle';
+import { GreenButton, } from '../css/styledComponenet';
 import ProfileImg from '../img/profile1.jpg';
 
 function ShowPost() {
