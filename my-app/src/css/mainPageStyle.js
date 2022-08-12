@@ -91,26 +91,24 @@ export const Button = styled.button`
 `;
 
 export const TranslucentButton = styled(Button)`
-  background: rgba(67, 159, 104, 0.6);  
+  background: rgba(67, 159, 104, 0.6);
 `;
 
 export const FillButton = styled(Button)`
-  background: rgba(67, 159, 104, 1);  
+  background: rgba(67, 159, 104, 1);
 `;
 
 export const LightButton = styled(Button)`
-  background: #D9ECE1;
-  color: #439F68;
+  background: #d9ece1;
+  color: #439f68;
 `;
-
 
 export const ButtonRowGroup = styled.div`
-display: flex;
-margin: 40px auto;
-gap: 20px;
-justify-content: center;
+  display: flex;
+  margin: 40px auto;
+  gap: 20px;
+  justify-content: center;
 `;
-
 
 //main page banner
 
@@ -123,6 +121,8 @@ export const Banner = styled.div`
 `;
 
 export const BannerContent = styled.h1`
+  width: 1400px;
+  margin: 0 auto;
   padding: 120px 120px;
 `;
 
@@ -173,7 +173,6 @@ export const BannerInput = styled.textarea`
     color: #c6c6c6;
   }
 `;
-
 
 // Content (Ranking)
 export const RankingContent = styled.div`
