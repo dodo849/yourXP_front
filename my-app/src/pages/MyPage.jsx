@@ -49,16 +49,22 @@ function MyPage() {
     point: "10,000",
   });
 
+  // 내가 산 경험 목록 데이터
   const [mySellPost, setMySellPost] = useState(initMySellPost);
+  // 내가 산 경험 목록 접기/펼치기
   const [isShowMySellPost, setIsShowMySellPost] = useState(false);
 
+  // 내가 판 경험 목록 데이터
   const [myBuyPost, setMyBuyPost] = useState(initMyBuyPost);
+  // 내가 산 경험 목록 접기/펼치기
   const [isShowMyBuyPost, setIsShowMyBuyPost] = useState(false);
 
   return (
     <>
-    <LoginModal/>
-      <MyPageTitle><h1>마이페이지</h1></MyPageTitle>
+      {/* <LoginModal/> */}
+      <MyPageTitle>
+        <h1>마이페이지</h1>
+      </MyPageTitle>
       <MyPageContainer>
         <LeftContainer>
           <ProfileImage></ProfileImage>
@@ -78,7 +84,7 @@ function MyPage() {
             <h5>비밀번호</h5>
             <p>{userInfo.pwd}</p>
           </ProfileInfo>
-    <Button>편집하기</Button>
+          <Button>편집하기</Button>
         </LeftContainer>
         <RightContainer>
           <BottomBorderContainer>
