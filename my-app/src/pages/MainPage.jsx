@@ -17,7 +17,7 @@ import {
   FillButton,
   LightButton,
   ButtonRowGroup,
-} from "./mainPageStyle";
+} from "../css/mainPageStyle";
 import RankingCard from "../components/RankingCard";
 
 function MainPage() {

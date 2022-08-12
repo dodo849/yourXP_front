@@ -1,4 +1,4 @@
-import { Title, Tag, Img } from "./rankingCardStyle";
+import { Title, Tag, Img } from "../css/rankingCardStyle";
 
 function RankingCard({ title, tag }) {
   return (
