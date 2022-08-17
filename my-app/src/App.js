@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer';
 import SellPostList from './pages/SellPostList';
 import SellShowPost from './pages/SellShowPost';
 import SellAllPost from './pages/SellAllPost';
@@ -15,7 +16,7 @@ import ChattingPage from './pages/ChattingPage';
 
 //페이지이름변경가능
 function App() {
-  return (
+  return (<>
     <Routes>
       <Route path='/' element={<MainPage/>}></Route>
       <Route path='/mypage' element={<MyPage/>}></Route>
@@ -28,7 +29,10 @@ function App() {
       <Route path='/signupmain' element={<SignUpMainPage/>}></Route>
       <Route path='/mypage' element={<MyPage/>}></Route>
       <Route path='/chat' element={<ChattingPage/>}></Route>
+
     </Routes>
+      <Footer></Footer>
+      </>
   );
 }
 
