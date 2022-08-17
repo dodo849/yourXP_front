@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {
     PostListDiv,
     PostSearchDiv,
@@ -8,42 +8,39 @@ import {
     GreenButton,
     MoreDiv,
     GrayButton,
+    StandardModalDiv,
     } from '../css/styledComponenet';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 import ListCardS from './ListCardS';
+import StandardModal from '../components/StandardModal';
 
 function PostList() {
-    let sellList = [
+    const [modal, setModal] = useState(false);
+    const [sellPosts, setSellPosts] = useState([]);
+
+    const getSellPosts = async () => {
+        console.log("getSellPosts call");
+        await fetch(
+        "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/views",
         {
-            title: "제가 LA에 있었을 때 일입니다..",
-            summary: "제가 LA에 있었을 때 일입니다.. 한국에서 일을 하고 있었던 저는",
-            tag: "#LA #경험",
-            view: "95", 
-            date: "2022.07.01",
-            heart: "50",
-            price: "7,000"
-        },
-        {
-            title: "21살, 산티아고 순례길 완주 성공기",
-            summary: "어린 나이 21살, 막 성인임을 느끼고 있던 차에 더 재밌는 경험을 해..",
-            tag: "#여행 #순례길 #산티아고",
-            view: "50", 
-            date: "2022.07.25",
-            heart: "35",
-            price: "80,000"
-        },
-        {
-            title: "구글 본사 10년 근무 노하우 전부..",
-            summary: "저는 2012년도에 구글 본사에 입사했습니다. 처음엔 이게 현실인...",
-            tag: "#IT #직장",
-            view: "72", 
-            date: "2022.08.01",
-            heart: "29",
-            price: "200,000"
-        },
-    ];
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+            // json을 response에 넣는다.
+            let response = await data.json();
+            console.log(response);
+            setSellPosts(response);
+        });
+    };
+
+    useEffect(() => {
+        getSellPosts();
+    }, []);
 
     return (
         <PostListDiv>
@@ -54,12 +51,14 @@ function PostList() {
                 </PostSearch>
             </PostSearchDiv>
             <Button>
-                <WhiteButton>추천순</WhiteButton>
-                <GreenButton>글쓰기</GreenButton>
+                <WhiteButton onClick={() => { setModal(!modal)}}>추천순</WhiteButton>
+                {modal === true ? <StandardModalDiv><StandardModal/></StandardModalDiv> : null}
+                <GreenButton onClick={() => {alert("준비중입니다");}}>글쓰기</GreenButton>
             </Button>
+            
             <hr/>
-            {sellList.map((item) => (
-                <ListCardS title={item.title} summary={item.summary} tag={item.tag} view={item.view} date={item.date} heart={item.heart} price={item.price}></ListCardS>
+            {sellPosts.slice(0).reverse().map(post => (
+                <ListCardS key={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time} heart={post.like} price={post.price}></ListCardS>
             ))}
             <MoreDiv>
                 <GrayButton>더보기</GrayButton>

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
+
 import {
     MediaDiv,
-    Footer,
     Main,
     Header,
     TopDiv,
@@ -21,14 +22,45 @@ import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 import NavBar from '../components/NavBar';
 import ShowAllPost from '../components/ShowAllPost';
 import WriteReview from '../components/WriteReview';
-import Moremodal from '../components/MoreModal';
+
+import Footer from '../components/Footer';
 
 function SellAllPost() {
+    const [sellPost, setSellPost] = useState([]);
+    const {sellXP_id} = useParams();
+
+    const getSellPost = async () => {
+        console.log("getSellPost call");
+        await fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/${sellXP_id}`,
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+            // json을 response에 넣는다.
+            let response = await data.json();
+            console.log(response);
+            setSellPost(response);
+        });
+    };
+
+    useEffect(() => {
+        getSellPost();
+    }, []);
+    
+
+    const navigate = useNavigate();
+    const goHome = () => {
+        navigate('/');
+    };
     return (        <>
             <MediaDiv>
                 <Header>
                     <TopDiv>
-                        <img src={Logo} width='170px' height='48px' />
+                        <img onClick={goHome} src={Logo} width='170px' height='48px'/>
                         <SearchSign>
                             <Search>
                                 <input type="text" placeholder='어떤 경험을 찾고 계신가요?' />
@@ -51,11 +83,8 @@ function SellAllPost() {
                 <Main>
                     <ShowAllPost/>
                     <WriteReview/>
-                    <Moremodal/>
                 </Main>
-                <Footer>
-                    <p>ⓒ멋쟁이사자처럼 10th at 경상국립대<br/>강경아 강지희 김민지 박재욱 박경훈 송채율 이도연 이재성</p>
-                </Footer>
+                <Footer/>
             </MediaDiv>
         </>
 

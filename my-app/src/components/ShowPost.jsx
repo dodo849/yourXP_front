@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import {
     PostSection,
     PostTitleDiv,
@@ -20,7 +21,6 @@ import {
     BuyPreDiv,
 } from '../css/PostStyle';
 import { GreenButton, } from '../css/styledComponenet';
-import ProfileImg from '../img/profile1.jpg';
 
 function ShowPost() {
     return (
@@ -28,9 +28,7 @@ function ShowPost() {
             <PostTitleDiv>
                 <h2>제가 LA에 있었을 때 일입니다..</h2>
                 <ProfileDiv>
-                    <ProfilePic>
-                        <img src={ProfileImg}/>
-                    </ProfilePic>
+                    <ProfilePic/>
                     <Profile>
                         <p>LA떠돌이</p>
                         <h6>2022.07.01 · 조회 95 · 추천 50</h6>
@@ -48,8 +46,8 @@ function ShowPost() {
                     한국에서 일을 하고 있던 저는 극심한 번아웃에 외국이라도 나가보자는 마음으로 무작정 LA <br/>
                     행을 결정하게 되었습니다.<br/>
                 </PostContent>
-                <PostTag>#LA</PostTag>
-                <PostTag>#경험</PostTag>
+                <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>
+                <PostTag onClick={() => {alert("준비중입니다");}}>#경험</PostTag>
                 <hr/>
             </PostContentDiv>
             <PostBuyDiv>
@@ -66,7 +64,7 @@ function ShowPost() {
                             <BuyPreNum>10장</BuyPreNum>
                         </BuyPre>
                     </BuyPreDiv>
-                    <GreenButton>구매하기</GreenButton>
+                    <GreenButton><Link to="/selllist/post/1">구매하기</Link></GreenButton>
                 </PostBuy>
             </PostBuyDiv>
         </PostSection>

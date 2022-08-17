@@ -16,7 +16,8 @@ export const List = styled.div`
     align-items: center;
 `;
 export const ListInfo = styled.div`
-    display: flex;    
+    display: flex;
+    cursor: pointer;
 `;
 export const ListText = styled.div`
     display: flex;   
@@ -37,19 +38,34 @@ export const Title = styled.span`
     color: #000000;
     margin: 15px 0px 5px 0px;
 
+    &:hover {
+        color: #439F68;
+        transition: .3s cubic-bezier(.25,.8,.25,1)!important;
+    }
 `;
 export const Summary = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: #767676;
     margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 `;
+
 export const Tag = styled.span`
     font-size: 16px;
     font-weight: 600;
     color: #439F68;
     margin-top: 15px;
     cursor: poiner;
+
+    &:hover {
+        color: #5CBE81;
+        transition: .3s cubic-bezier(.25,.8,.25,1)!important;
+    }
 `;
 export const Check = styled.div`
     h6 {
@@ -82,6 +98,7 @@ export const Heart = styled.div`
         color: #439f68;
         font-weight: 500;
     }
+
     hr{
         height:30px;
         width: 0.5px;
@@ -111,3 +128,4 @@ export const Price = styled.div`
         color: #439F68;
     }
 `;
+

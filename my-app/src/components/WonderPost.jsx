@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
 import {
     PostSection,
     PostTitleDiv,
@@ -15,28 +16,36 @@ import {
     PostTag,
 } from '../css/PostStyle';
 import {PointDiv} from '../css/ListCardBStyle';
-import { GreenButton } from '../css/styledComponenet';
+import { GreenButton, MoreModalDiv } from '../css/styledComponenet';
 
-import ProfileImg from '../img/profile1.jpg';
+import Moremodal from '../components/MoreModal';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
 function WonderPost() {
+    const [modal, setModal] = useState(false);
+
     return (
         <PostSection>
             <PostTitleDiv>
                 <h2>교환 학생 갔다오신분 알려주세요</h2>
                 <ProfileDiv>
-                    <ProfilePic>
-                        <img src={ProfileImg}/>
-                    </ProfilePic>
+                    <ProfilePic/>
                     <Profile>
                         <p>이재성</p>
                         <h6>2시간 전 · 조회 26</h6>
                     </Profile>
 
                     <MoreButton>
-                        <FontAwesomeIcon icon={faEllipsisVertical} size='2x' color='#BFBFBF'/>
+                        <FontAwesomeIcon 
+                            icon={faEllipsisVertical} 
+                            size='2x'
+                            color='#BFBFBF'
+                            style={{cursor:'pointer'}}
+                            onClick={() => { setModal(!modal)}}
+                        />
+                        {modal === true ? <MoreModalDiv><Moremodal/></MoreModalDiv> : null}
                     </MoreButton>
                 </ProfileDiv>
                 <PointDiv>
@@ -54,10 +63,10 @@ function WonderPost() {
                 </PostContent>
                 <PostReact>
                     <BuyPreDiv>
-                        <PostTag>#LA</PostTag>
-                        <PostTag>#경험</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#경험</PostTag>
                     </BuyPreDiv>
-                    <GreenButton>채팅하기</GreenButton>
+                    <GreenButton><Link to="/chat">채팅하기</Link></GreenButton>
                 </PostReact>
             </PostContentDiv>
         </PostSection>

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
     ListInfo,
     ListText,
@@ -10,7 +9,6 @@ import {
     ListInfo2,
     Line,
 } from "../css/ListCardSStyle"
-
 import {
     List,
     Price,
@@ -20,6 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 
 function ListCardB({ title, summary, tag, view, date, price, deadline}) {
+    
+
     return (
         <>
             <List>
