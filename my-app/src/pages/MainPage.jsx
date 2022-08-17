@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Banner,
   BannerContent,
@@ -36,6 +36,55 @@ function MainPage() {
     },
   ];
 
+  const [sellPosts, setSellPosts] = useState([]);
+  const [sellPostTags, setSellPostTags] = useState([]);
+
+
+  const getSellPosts = async () => {
+    console.log("getSellPosts call");
+    let response = await fetch(
+      "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/views",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      })
+      // json을 response에 넣는다.
+      response = await response.json()
+
+      console.log(typeof response);
+      console.log(response);
+
+      response.map((item)=>getSellPostTags(item.id));
+
+      setSellPosts(response);
+
+  };
+
+
+
+  const getSellPostTags = async (postId) => {
+    console.log("getSellXPTags call");
+    let response = await fetch(
+      `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/tag/${postId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      })
+      // json을 response에 넣는다.
+      response = await response.json()
+      setSellPostTags([...sellPostTags, response])
+      console.log(sellPostTags);
+
+  };
+
+  useEffect(() => {
+    getSellPosts();
+  }, []);
+
   return (
     <>
       <Banner>
@@ -62,8 +111,8 @@ function MainPage() {
           </ContentDescription>
         </ContentIntro>
         <RankingCards>
-          {rakingContent.map((item) => (
-            <RankingCard title={item.title} tag={item.tag}></RankingCard>
+          {sellPosts.map((sellPost, index) => (
+            <RankingCard key={sellPost.id} title={sellPost.title}></RankingCard>
           ))}
         </RankingCards>
       </RankingContent>
@@ -77,8 +126,6 @@ function MainPage() {
           <LightButton>경험 물어보기</LightButton>
         </ButtonRowGroup>
       </RankingContent>
-
-
     </>
   );
 }
