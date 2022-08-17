@@ -9,6 +9,8 @@ import BuyPostList from './pages/BuyPostList';
 import BuyAllPost from './pages/BuyAllPost';
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
+import SignUpPage from './pages/SignUpPage';
+import SignUpMainPage from './pages/SignUpMainPage';
 
 //페이지이름변경가능
 function App() {
@@ -21,6 +23,8 @@ function App() {
       <Route path='/selllist/post/1' element={<SellAllPost/>}></Route>
       <Route path='/buylist' element={<BuyPostList/>}></Route>
       <Route path='/buylist/1' element={<BuyAllPost/>}></Route>
+      <Route path='/signup' element={<SignUpPage/>}></Route>
+      <Route path='/signupmain' element={<SignUpMainPage/>}></Route>
     </Routes>
   );
 }
