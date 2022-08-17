@@ -11,6 +11,11 @@ export const Title = styled.div`
   font-weight: 600;
   font-size: 16px;
   margin-top: 10px;
+  text-overflow: ellipsis;
+  width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Tag = styled.div`
