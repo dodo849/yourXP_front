@@ -19,7 +19,6 @@ import {
   ButtonRowGroup,
 } from "../css/mainPageStyle";
 import RankingCard from "../components/RankingCard";
-import Header from "../components/Header";
 
 function MainPage() {
   let rakingContent = [
@@ -39,7 +38,6 @@ function MainPage() {
 
   return (
     <>
-      <Header/>
       <Banner>
         <BannerContent>
           <BannerTitle>
