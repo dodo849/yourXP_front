@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import {
     PostSection,
     PostTitleDiv,
@@ -15,48 +16,51 @@ import {
     PostTag,
     HeartDiv,
 } from '../css/PostStyle';
-import { GreenButton } from '../css/styledComponenet';
+import { GreenButton, MoreModalDiv } from '../css/styledComponenet';
 import { Heart } from "../css/ListCardSStyle";
 
-import ProfileImg from '../img/profile1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 import Moremodal from '../components/MoreModal';
+import ToggledHeart from '../components/ToggledHeart';
 
 import PostImg1 from '../img/la.jpg';
 import PostImg2 from '../img/la2.jpg';
 
 function ShowAllPost() {
+    const [modal, setModal] = useState(false);
+    const [isHeart, setIsHeart] = useState(true);
 
     return (
         <PostSection>
             <PostTitleDiv>
                 <h2>제가 LA에 있었을 때 일입니다..</h2>
                 <ProfileDiv>
-                    <ProfilePic>
-                        <img src={ProfileImg}/>
-                    </ProfilePic>
+                    <ProfilePic/>
                     <Profile>
                         <p>LA떠돌이</p>
                         <h6>2022.07.01 · 조회 95 · 추천 50</h6>
                     </Profile>
                     <MoreButton>
-                        <FontAwesomeIcon icon={faEllipsisVertical} size='2x' color='#BFBFBF'/>
+                        <FontAwesomeIcon 
+                            icon={faEllipsisVertical} 
+                            size='2x'
+                            color='#BFBFBF'
+                            style={{cursor:'pointer'}}
+                            onClick={() => { setModal(!modal)}}
+                        />
+                        {modal === true ? <MoreModalDiv><Moremodal/></MoreModalDiv> : null}
                     </MoreButton>
-
                 </ProfileDiv>
+
                 <hr/>
             </PostTitleDiv>
             <PostContentDiv>
                 <PostImgDiv>
-                    <PostImg>
-                        <img src={PostImg1} />
-                    </PostImg>
-                    <PostImg>
-                        <img src={PostImg2} />
-                    </PostImg>
+                    <PostImg/>
+                    <PostImg/>
                 </PostImgDiv>
                 <PostContent>
                     LA에 있을 때 사진들 몇 개 보여드립니다.<br/>
@@ -64,16 +68,16 @@ function ShowAllPost() {
                 </PostContent>
                 <HeartDiv>
                     <Heart>
-                        <FontAwesomeIcon icon={faHeart} color='#439F68'/>
+                        <ToggledHeart setIsHeart={setIsHeart}/>
                         <p>50</p>
                     </Heart>
                 </HeartDiv>
                 <PostReact>
                     <BuyPreDiv>
-                        <PostTag>#LA</PostTag>
-                        <PostTag>#경험</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#경험</PostTag>
                     </BuyPreDiv>
-                    <GreenButton>채팅하기</GreenButton>
+                    <GreenButton><Link to="/chat">채팅하기</Link></GreenButton>
                 </PostReact>
             </PostContentDiv>
         </PostSection>

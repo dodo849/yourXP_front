@@ -19,9 +19,17 @@ function ToggledArrow({ setIsShowContent }) {
     }
   };
 
+  const arrowStyle = {
+    margin: '0',
+    padding: '0',
+    backgroundColor: 'white',
+    cursor: 'pointer',
+    border: 'none',
+  }
+
   return (
     <>
-      <button
+      <button style={arrowStyle}
         onClick={() => {
           toggleArrow();
         }}

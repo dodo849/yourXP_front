@@ -27,12 +27,11 @@ export const PostTitleDiv = styled.div`
 `;
 
 //본문-경험글-프로필
-export const ProfilePic = styled.div`
-    img {
-        width: 45px;
-        height: 45px;
-        border-radius: 10px;
-    };
+export const ProfilePic = styled.image`
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #767676;
     margin: 5px;
     margin-left: 0px;
 `;
@@ -54,13 +53,12 @@ export const ProfileDiv = styled.div`
         font-weight: lighter;
         margin: 5px 0px;
     }
-    witdh: 700px;
+    width: 675px;
     display: flex;
     align-items: center;
 `;
 
 export const MoreButton = styled.button`
-    margin-right: 10px;
     margin-left: 415px;
     background-color: white;
     border: none;
@@ -122,7 +120,13 @@ export const PostTag = styled.button`
     font-size: 14px;
     border: none;
     margin: 30px 25px 30px 0px;
-    cursor: pointer;
+
+    &:hover{
+        cursor: pointer;
+        opacity: 80%;
+        transition: .28s cubic-bezier(.4,0,.2,1) !important;
+    }
+
 `;
 
 export const PostImgDiv = styled.div`
@@ -131,15 +135,13 @@ export const PostImgDiv = styled.div`
 
 `;
 
-export const PostImg = styled.div`
-    img {
-        width: 280px;
-        height: auto;
-        margin: 5px;
-        border: none;
-        border-radius:10px;
-    }    
-
+export const PostImg = styled.image`
+    width: 280px;
+    height: 175px;
+    background-color: #767676;
+    margin: 5px;
+    border: none;
+    border-radius:10px; 
 `;
 
 export const PostReact = styled.div`
