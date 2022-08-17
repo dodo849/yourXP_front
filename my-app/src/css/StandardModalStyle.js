@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const MoreModalDiv = styled.div`
+export const StandardModalDiv = styled.div`
     padding: 5px 0px;
-    width: 85px;
-    height: 50px;
-    border: 1px solid #bababa;
+    width: 90px;
+    height: 100px;
+    border: 1px solid #439F68;
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 0px 0px 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -19,7 +19,7 @@ export const MoreModalDiv = styled.div`
     }
 `;
 
-export const MoreModal = styled.button`
+export const Modal = styled.button`
     display: flex;
     border: none;
     background-color: white;
@@ -27,11 +27,12 @@ export const MoreModal = styled.button`
 `;
 
 export const Text = styled.span`
-    font-size: 11px;
-    color: #767676;    
-`;
-export const Icon = styled.div`
-    width: 15px;
-    height: 15px;
-    margin-left: 3px;
+    font-size: 14px;
+    color: #767676;  
+    cursor: pointer;
+    font-weight: 500;
+    
+    &:hover {
+        color: #439F68;  
+    }
 `;

@@ -9,6 +9,7 @@ import BuyPostList from './pages/BuyPostList';
 import BuyAllPost from './pages/BuyAllPost';
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
+import ChattingPage from './pages/ChattingPage';
 
 //페이지이름변경가능
 function App() {
@@ -21,6 +22,8 @@ function App() {
       <Route path='/selllist/post/1' element={<SellAllPost/>}></Route>
       <Route path='/buylist' element={<BuyPostList/>}></Route>
       <Route path='/buylist/1' element={<BuyAllPost/>}></Route>
+      <Route path='/mypage' element={<MyPage/>}></Route>
+      <Route path='/chat' element={<ChattingPage/>}></Route>
     </Routes>
   );
 }

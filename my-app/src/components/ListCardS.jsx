@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
     List,
@@ -16,9 +16,12 @@ import {
 } from "../css/ListCardSStyle"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
+import { faEye } from '@fortawesome/free-regular-svg-icons';
+import ToggledHeart from './ToggledHeart';
 
 function ListCardS({ title, summary, tag, view, date, heart, price }) {   
+    const [isHeart, setIsHeart] = useState(true);
+
     return (
         <>
             <List>
@@ -38,7 +41,7 @@ function ListCardS({ title, summary, tag, view, date, heart, price }) {
                 </ListInfo>
                 <ListInfo2>
                     <Heart>
-                        <FontAwesomeIcon icon={faHeart} color='#439F68'/>
+                        <ToggledHeart setIsHeart={setIsHeart}/>
                         <hr/>
                         <p>{heart}</p>
                     </Heart>

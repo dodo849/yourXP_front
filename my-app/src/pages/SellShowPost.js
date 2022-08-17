@@ -1,7 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import {
     MediaDiv,
-    Footer,
     Main,
     Header,
     TopDiv,
@@ -21,14 +22,19 @@ import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 import NavBar from '../components/NavBar';
 import ShowPost from '../components/ShowPost';
 import ShowReview from '../components/ShowReview';
+import Footer from '../components/Footer';
 
 function SellShowPost() {
+    const navigate = useNavigate();
+    const goHome = () => {
+        navigate('/');
+    };
     return (
         <>
             <MediaDiv>
                 <Header>
                     <TopDiv>
-                        <img src={Logo} width='170px' height='48px' />
+                        <img onClick={goHome} src={Logo} width='170px' height='48px'/>
                         <SearchSign>
                             <Search>
                                 <input type="text" placeholder='어떤 경험을 찾고 계신가요?' />
@@ -47,13 +53,12 @@ function SellShowPost() {
                     </MenuInfo>
                     <NavBar/>
                 </Header>
+                
                 <Main>
                     <ShowPost/>
                     <ShowReview/>
                 </Main>
-                <Footer>
-                    <p>ⓒ멋쟁이사자처럼 10th at 경상국립대<br/>강경아 강지희 김민지 박재욱 박경훈 송채율 이도연 이재성</p>
-                </Footer>
+                <Footer/>
             </MediaDiv>
         </>
     )
