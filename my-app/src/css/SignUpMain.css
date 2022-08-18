@@ -1,116 +1,116 @@
-.welcome{
-    margin-bottom: -35px;
+.welcome {
+  margin-bottom: -35px;
 }
-.SignUpMainTitle{
-
-    padding-bottom: 15px;
-    border-bottom: 1px solid #BFBFBF;
-    margin-bottom: 40px;
-
-    
-    
-    
+.SignUpMainTitle {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #bfbfbf;
+  margin-bottom: 40px;
 }
-.SignUpMain h3{
-    font-size: 40px;
-    color:#439F68;
+.SignUpMain h3 {
+  font-size: 40px;
+  color: #439f68;
 }
-.SignUpMain h5{
-    font-size: 18px;
-    font-weight: 250;
-    color:#969494;
+.SignUpMain h5 {
+  font-size: 18px;
+  font-weight: 250;
+  color: #969494;
 }
-.SignUpMain{
-    width: 750px;
-    margin: 10px auto 0;
-    margin-bottom: 150px;
-    padding: 15px 20px;
-    background: white;
-    color: #2b2e4a;
-    text-align: center;
+.SignUpMain {
+  width: 750px;
+  margin: 100px auto 0 auto;
+  margin-bottom: 150px;
+  padding: 15px 20px;
+  background: white;
+  color: #2b2e4a;
+  text-align: center;
 }
-.SignUpMainChoice{
-    margin-top: -10px;
-    margin-bottom: -10px;
-    
+.SignUpMainChoice {
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
-
 
 .Simple_SignUp {
-    width:500px;
-    height: 70px;
-    border-radius: 10px;
-    border: 1px solid #C4C4C4;
-    background-color: #ffff;
+  width: 500px;
+  height: 70px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  background-color: #ffff;
+  padding: 10px 100px;
 }
 
 .Kakao_SignUp {
-    width:500px;
-    height: 70px;
-    border-radius: 10px;
-    border: 1px solid #C4C4C4;
-    background-color: #ffff;
+  width: 500px;
+  height: 70px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  background-color: #ffff;
 }
 
 .Naver_SignUp {
-    width:500px;
-    height: 70px;
-    border-radius: 10px;
-    border: 1px solid #C4C4C4;
-    background-color: #ffff;
+  width: 500px;
+  height: 70px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  background-color: #ffff;
 }
 
-.wrap{
-    padding: 10PX;
-    font-size: 20px;
-    color: #0000;
-    
-    
-
+.wrap {
+  /* display: block; */
+  padding: 10px;
+  font-size: 20px;
+  color: #0000;
 }
 
-.text{
-    color:#767676;
-    font-size: 10px;
-    margin-left: 20px;
+.text {
+  color: #767676;
+  font-size: 10px;
+  margin-left: 20px;
 }
-.Simple_SignUp{
-    color: black;
-    
+.Simple_SignUp {
+  color: black;
 }
-.mailimg{
-    overflow: hidden;
-    position: relative;
+.mailimg {
+  overflow: hidden;
+  position: relative;
 }
 .mailimg > img {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    /* height: 100%; */
-    
-    transform: translate(-230%, -30%);
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  /* height: 100%; */
+
+  transform: translate(-230%, -30%);
 }
-.kakaoimg{
-    overflow: hidden;
-    position: relative;
+.kakaoimg {
+  overflow: hidden;
+  position: relative;
 }
 .kakaoimg > img {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    /* height: 100%; */
-    
-    transform: translate(-150%, -30%);
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  /* height: 100%; */
+
+  transform: translate(-150%, -30%);
 }
-.naverimg{
-    overflow: hidden;
-    position: relative;
+.naverimg {
+  overflow: hidden;
+  position: relative;
 }
 .naverimg > img {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    /* height: 100%; */
-    
-    transform: translate(-170%, -30%);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  /* height: 100%; */
+
+  transform: translate(-170%, -30%);
+}
+
+/* 텍스트 사이즈 수정 */
+.text1 {
+  font-size: 18px;
+}
+
+.text {
+  font-size: 14px;
 }

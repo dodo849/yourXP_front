@@ -1,20 +1,13 @@
 import styled, { keyframes } from "styled-components";
 
-export const ModalBackground = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-`;
+export const ModalBackground = styled.div``;
 
 export const ModalContainer = styled.div`
   background-color: white;
   width: 700px;
-  margin: calc(100vh - 700px) auto;
   border-radius: 10px;
   padding: 30px 0px;
+  margin: 100px auto;
 
   text-align: center;
   font-weight: 700;

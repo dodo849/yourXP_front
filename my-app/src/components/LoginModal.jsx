@@ -11,7 +11,6 @@ function LoginModal() {
     <>
       <ModalBackground>
         <ModalContainer>
-            <h3 style={{textAlign: "right", margin: "20px",}}>x</h3>
           <Title>
             <h1>로그인</h1>
           </Title>

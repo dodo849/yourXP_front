@@ -24,7 +24,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function MainPage() {
-  let rankingContent = [
+  let dummyContent = [
     {
       id: 1,
       title: "제가 LA에 있었을 때 일입니다..",
@@ -128,7 +128,7 @@ function MainPage() {
         </ContentIntro>
         <RankingCards>
           {sellPosts.length == 0
-            ? rankingContent.map((sellPost, index) => (
+            ? dummyContent.map((sellPost, index) => (
                 <RankingCard
                   key={index}
                   id={sellPost.id}
@@ -142,9 +142,9 @@ function MainPage() {
                 <RankingCard
                   key={sellPost.id}
                   id={sellPost.id}
-                  imgName={rankingContent[index].imgName}
+                  imgName={dummyContent[index].imgName}
                   title={sellPost.title}
-                  tag={rankingContent[index].tag}
+                  tag={dummyContent[index].tag}
                   rankNumber={index+1}
                 ></RankingCard>
               ))}
