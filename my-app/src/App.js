@@ -9,6 +9,7 @@ import SellAllPost from "./pages/SellAllPost";
 import BuyPostList from "./pages/BuyPostList";
 import BuyAllPost from "./pages/BuyAllPost";
 import MainPage from "./pages/MainPage";
+import WritePost from "./pages/WritePost";
 import MyPage from "./pages/MyPage";
 import SignUpPage from "./pages/SignUpPage";
 import SignUpMainPage from "./pages/SignUpMainPage";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/point" element={<Point />}></Route>
           <Route path="/sellpost" element={<ChattingPage />}></Route>
           <Route path="/askpost" element={<AskPost />}></Route>
+          <Route path="/writepost" element={<WritePost />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
       </MainContainer>

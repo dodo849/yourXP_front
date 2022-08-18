@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Title, Tag, Img, RankNumber, ShowDetail } from "../css/rankingCardStyle";
 import ArrowRight from "../img/icon/arrow-right.svg";
 
-function RankingCard({ id, title, tag, rankNumber, imgName }) {
+function RankingCard({ id, title, tag1, tag2, tag3, rankNumber, imgName, isApiSuccess }) {
 
   // 화면 전환
   const navigate = useNavigate();
@@ -17,10 +18,10 @@ function RankingCard({ id, title, tag, rankNumber, imgName }) {
     <div>
       <RankNumber>{rankNumber}위</RankNumber>
         <Img>
-        <img src={require(`../img/${imgName}`)} alt="post image" />
+        { isApiSuccess ?<img src={`https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP${imgName}`} alt="post image" />: <img src={require(`../img/${imgName}`)} alt="post image" />}
         </Img>
       <Title>{title}</Title>
-      <Tag>{tag}</Tag>
+      <Tag>#{tag1} #{tag2} #{tag3}</Tag>
       <ShowDetail onClick={()=>goSellPostDetail(id)}>
         <p>자세히보기</p>
         <img src={ArrowRight} alt="화살표" width="15px" height="15px"/>
