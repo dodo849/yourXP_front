@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+
 import '../css/SignUpMain.css';
 
 import Welcomelogo from '../img/welcome_logo.png';
@@ -7,6 +9,12 @@ import Kakaologo from '../img/kakao_logo.png';
 import Naverlogo from '../img/naver_logo.png';
 
 function SignUpMain(){
+    const navigate = useNavigate();
+
+    const gosignup = (userId) => {
+        navigate("/signup");
+    };
+
     return(
         <body>
 
@@ -24,7 +32,7 @@ function SignUpMain(){
     
             <div className="SignUpMainChoiceMenu">
                 <div className="wrap">
-                <button className='Simple_SignUp' >
+                <button className='Simple_SignUp' onClick={()=>gosignup()} >
                     <span className='mailimg'><img src={Simplelogo} /></span>
                     <span className='text1'>간편 회원가입</span>
                     <span className='text'>인증없이 간편하게 회원가입</span>
