@@ -36,7 +36,23 @@
 }
 
 
-button{
+.Simple_SignUp {
+    width:500px;
+    height: 70px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    background-color: #ffff;
+}
+
+.Kakao_SignUp {
+    width:500px;
+    height: 70px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    background-color: #ffff;
+}
+
+.Naver_SignUp {
     width:500px;
     height: 70px;
     border-radius: 10px;

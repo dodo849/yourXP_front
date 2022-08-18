@@ -22,7 +22,7 @@ import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 import NavBar from '../components/NavBar';
 import ShowPost from '../components/ShowPost';
 import ShowReview from '../components/ShowReview';
-import Footer from '../components/Footer';
+
 
 function SellShowPost() {
     const navigate = useNavigate();
@@ -58,7 +58,6 @@ function SellShowPost() {
                     <ShowPost/>
                     <ShowReview/>
                 </Main>
-                <Footer/>
             </MediaDiv>
         </>
     )

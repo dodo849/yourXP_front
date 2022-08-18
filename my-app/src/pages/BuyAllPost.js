@@ -20,7 +20,6 @@ import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 
 import NavBar from '../components/NavBar';
 import WonderPost from '../components/WonderPost';
-import Footer from '../components/Footer';
 
 function BuyAllPost() {
     const navigate = useNavigate();
@@ -55,8 +54,6 @@ function BuyAllPost() {
                 <Main>
                     <WonderPost/>
                 </Main>
-
-                <Footer/>
             </MediaDiv>
         </>
     )

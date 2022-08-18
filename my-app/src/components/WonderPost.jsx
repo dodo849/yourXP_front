@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import {
     PostSection,
@@ -26,6 +26,30 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 function WonderPost() {
     const [modal, setModal] = useState(false);
 
+    const [buyPost, setBuyPost] = useState([]);
+
+    const getBuyPost = async () => {
+        console.log("getSellPosts call");
+        await fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/buyXP/buys/detail/2`,
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+            // json을 response에 넣는다.
+            let response = await data.json();
+            console.log(response);
+            setBuyPost(response);
+        });
+    };
+
+    useEffect(() => {
+        getBuyPost();
+    }, []);
+
     return (
         <PostSection>
             <PostTitleDiv>
@@ -33,8 +57,8 @@ function WonderPost() {
                 <ProfileDiv>
                     <ProfilePic/>
                     <Profile>
-                        <p>이재성</p>
-                        <h6>2시간 전 · 조회 26</h6>
+                        <p>{buyPost.user}</p>
+                        <h6>{buyPost.create_time.slice(0,-17)} · 조회 {buyPost.hits}</h6>
                     </Profile>
 
                     <MoreButton>
@@ -50,17 +74,14 @@ function WonderPost() {
                 </ProfileDiv>
                 <PointDiv>
                     <Point>Point</Point>
-                    <PointPrice>7,000</PointPrice>
+                    <PointPrice>{buyPost.price}</PointPrice>
                     <Point>마감</Point>
-                    <PointPrice>2022.08.15</PointPrice>
+                    <PointPrice>{buyPost.deadline.slice(0,-10)}</PointPrice>
                 </PointDiv>
                 <hr/>
             </PostTitleDiv>
             <PostContentDiv>
-                <PostContent>
-                    다음학기 교환 학생 가려고 하는데 <br/>
-                    혹시 미국으로 다녀오신분 있으면 연락주세요. <br/>
-                </PostContent>
+                <PostContent>{buyPost.text}</PostContent>
                 <PostReact>
                     <BuyPreDiv>
                         <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>

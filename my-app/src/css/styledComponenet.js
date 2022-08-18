@@ -194,7 +194,6 @@ export const NavBox = styled.div`
         background-color: #5CBE81;
         margin: 0px;
         padding: 0px;
-        transition: left 0.25s ease-in-out 0s;
     }
 `;
 
@@ -382,8 +381,8 @@ export const TestStyle = styled.div`
 export const MoreModalDiv = styled.div`
     position: absolute;
     left: 995px;
-    top: 66.5%;
-    z-index:5;
+    top: 65.7%;
+    z-index:100;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgb(190,190,190,0.3) ;
 `;
