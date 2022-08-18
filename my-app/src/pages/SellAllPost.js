@@ -23,7 +23,6 @@ import NavBar from '../components/NavBar';
 import ShowAllPost from '../components/ShowAllPost';
 import WriteReview from '../components/WriteReview';
 
-import Footer from '../components/Footer';
 
 function SellAllPost() {
     const [sellPost, setSellPost] = useState([]);
@@ -84,7 +83,6 @@ function SellAllPost() {
                     <ShowAllPost/>
                     <WriteReview/>
                 </Main>
-                <Footer/>
             </MediaDiv>
         </>
 

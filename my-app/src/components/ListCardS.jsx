@@ -19,14 +19,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import ToggledHeart from './ToggledHeart';
 
-function ListCardS({ title, summary, tag, view, date, heart, price }) {   
+function ListCardS({ title, img, summary, tag, view, date, heart, price }) {   
     const [isHeart, setIsHeart] = useState(true);
 
     return (
         <>
             <List>
                 <ListInfo>
-                    <Img></Img>
+                    <Img>{img}</Img>
                     <ListText>
                         <Title>{title}</Title>
                         <Summary>{summary}</Summary>

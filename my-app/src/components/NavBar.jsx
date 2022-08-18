@@ -29,7 +29,7 @@ function NavBar() {
                         // onClick={}
                         >궁금한 경험들</NavLink>
                 </p>
-                <NavBox><div className='box'> </div></NavBox>
+                {/* <NavBox><div className='box'> </div></NavBox> */}
             </NavTitle>
             <Navbar>
                 <hr/>

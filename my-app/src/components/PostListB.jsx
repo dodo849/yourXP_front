@@ -53,7 +53,7 @@ function PostListB() {
             </Button>
             <hr/>
             {buyPosts.slice(0).reverse().map(post => (
-                <ListCardB key={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time} price={post.price} deadline={post.deadline}></ListCardB>
+                <ListCardB key={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time.slice(0,-17)} price={post.price} deadline={post.deadline.slice(0,-10)}></ListCardB>
             ))} 
             <MoreDiv>
                 <GrayButton>더보기</GrayButton>

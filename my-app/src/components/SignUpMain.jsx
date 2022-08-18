@@ -25,26 +25,26 @@ function SignUpMain(){
             <div className="SignUpMainChoiceMenu">
                 <div className="wrap">
                 <button className='Simple_SignUp' >
-                <span className='mailimg'><img src={Simplelogo} /></span>
-                <span className='text1'>간편 회원가입</span>
-                <span className='text'>인증없이 간편하게 회원가입</span>
+                    <span className='mailimg'><img src={Simplelogo} /></span>
+                    <span className='text1'>간편 회원가입</span>
+                    <span className='text'>인증없이 간편하게 회원가입</span>
                 </button>
                 </div>
     
                 <div className="wrap">
                 <button className='Kakao_SignUp' >
-                <span className='kakaoimg'><img src={Kakaologo} /></span>
-                <span className='text1'>카카오톡으로 회원가입</span>
-                <span className='text'>카카오톡으로 인증하여 회원가입</span>
+                    <span className='kakaoimg'><img src={Kakaologo} /></span>
+                    <span className='text1'>카카오톡으로 회원가입</span>
+                    <span className='text'>카카오톡으로 인증하여 회원가입</span>
                 </button>
                 
                 </div>
     
                 <div className="wrap">
                 <button className='Naver_SignUp' >
-                <span className='naverimg'><img src={Naverlogo} /></span>
-                <span className='text1'>네이버로 회원가입</span>
-                <span className='text'>네이버로 인증하여 회원가입</span>
+                    <span className='naverimg'><img src={Naverlogo} /></span>
+                    <span className='text1'>네이버로 회원가입</span>
+                    <span className='text'>네이버로 인증하여 회원가입</span>
                 </button>
                 </div>
     
