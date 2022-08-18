@@ -8,7 +8,7 @@ import {
     AskContent,
     AskContentBox,
     AskCompleteButton
-} from './StyledComponent';
+} from '../css/StyledComponent';
 
 function AskPost() {
     return(
