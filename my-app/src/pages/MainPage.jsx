@@ -19,6 +19,7 @@ import {
   ButtonRowGroup,
 } from "../css/mainPageStyle";
 import RankingCard from "../components/RankingCard";
+import Header from "../components/Header";
 import { useNavigate } from 'react-router-dom';
 
 function MainPage() {
@@ -95,6 +96,7 @@ function MainPage() {
 
   return (
     <>
+    <Header></Header>
       <Banner>
         <BannerContent>
           <BannerTitle>

@@ -105,7 +105,7 @@ export const LightButton = styled(Button)`
 
 export const ButtonRowGroup = styled.div`
   display: flex;
-  margin: 40px auto;
+  margin: 40px auto 400px auto;
   gap: 20px;
   justify-content: center;
 `;
