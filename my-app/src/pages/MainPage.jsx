@@ -20,27 +20,33 @@ import {
 } from "../css/mainPageStyle";
 import RankingCard from "../components/RankingCard";
 import Header from "../components/Header";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 function MainPage() {
-  let rakingContent = [
+  let rankingContent = [
     {
+      id: 1,
       title: "제가 LA에 있었을 때 일입니다..",
       tag: "#LA #경험",
+      imgName: "img_LA.png",
     },
     {
+      id: 2,
       title: "21살, 산티아고 순례길 완주 성공기",
       tag: "#여행 #순례길",
+      imgName: "img_santiago.png",
     },
     {
+      id: 3,
       title: "구글 본사 10년 근무 노하우 전부..",
       tag: "#IT #직장",
+      imgName: "img_google.png",
     },
   ];
 
   const [sellPosts, setSellPosts] = useState([]);
   const [sellPostTags, setSellPostTags] = useState([]);
-
 
   const getSellPosts = async () => {
     console.log("getSellPosts call");
@@ -51,20 +57,16 @@ function MainPage() {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
         },
-      })
-      // json을 response에 넣는다.
-      response = await response.json()
+      }
+    );
+    // json을 response에 넣는다.
+    response = await response.json();
+    console.log(response);
 
-      console.log(typeof response);
-      console.log(response);
+    // response.map((item) => getSellPostTags(item.id));
 
-      response.map((item)=>getSellPostTags(item.id));
-
-      setSellPosts(response);
-
+    setSellPosts(response);
   };
-
-
 
   const getSellPostTags = async (postId) => {
     console.log("getSellXPTags call");
@@ -75,12 +77,12 @@ function MainPage() {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
         },
-      })
-      // json을 response에 넣는다.
-      response = await response.json()
-      setSellPostTags([...sellPostTags, response])
-      console.log(sellPostTags);
-
+      }
+    );
+    // json을 response에 넣는다.
+    response = await response.json();
+    setSellPostTags([...sellPostTags, response]);
+    console.log(sellPostTags);
   };
 
   useEffect(() => {
@@ -94,9 +96,13 @@ function MainPage() {
     navigate("/selllist");
   };
 
+  const goAskPost = (userId) => {
+    navigate("/askpost");
+  };
+
   return (
     <>
-    <Header></Header>
+      <Header></Header>
       <Banner>
         <BannerContent>
           <BannerTitle>
@@ -115,15 +121,33 @@ function MainPage() {
       <RankingContent>
         <ContentIntro>
           <ContentType>경험 둘러보기</ContentType>
-          <ContentTitle>이번달 랭킹 Top 10</ContentTitle>
+          <ContentTitle>이번달 랭킹 Top 3</ContentTitle>
           <ContentDescription>
             이번달 가장 핫한 경험을 구경해보세요
           </ContentDescription>
         </ContentIntro>
         <RankingCards>
-          {sellPosts.map((sellPost, index) => (
-            <RankingCard key={sellPost.id} title={sellPost.title}></RankingCard>
-          ))}
+          {sellPosts.length == 0
+            ? rankingContent.map((sellPost, index) => (
+                <RankingCard
+                  key={index}
+                  id={sellPost.id}
+                  imgName={sellPost.imgName}
+                  title={sellPost.title}
+                  tag={sellPost.tag}
+                  rankNumber={index + 1}
+                ></RankingCard>
+              ))
+            : sellPosts.map((sellPost, index) => (
+                <RankingCard
+                  key={sellPost.id}
+                  id={sellPost.id}
+                  imgName={rankingContent[index].imgName}
+                  title={sellPost.title}
+                  tag={rankingContent[index].tag}
+                  rankNumber={index+1}
+                ></RankingCard>
+              ))}
         </RankingCards>
       </RankingContent>
 
@@ -132,8 +156,8 @@ function MainPage() {
           <ContentTitle>지금 참여해주세요</ContentTitle>
         </ContentIntro>
         <ButtonRowGroup>
-          <FillButton onClick={()=>goSellList()}>경험 들려주기</FillButton>
-          <LightButton>경험 물어보기</LightButton>
+          <FillButton onClick={() => goSellList()}>경험 들려주기</FillButton>
+          <LightButton onClick={() => goAskPost()}>경험 물어보기</LightButton>
         </ButtonRowGroup>
       </RankingContent>
     </>

@@ -217,3 +217,5 @@ export const RankingCards = styled.div`
   gap: 20px;
   justify-content: center;
 `;
+
+

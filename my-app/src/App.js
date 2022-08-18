@@ -13,6 +13,7 @@ import MyPage from './pages/MyPage';
 import SignUpPage from './pages/SignUpPage';
 import SignUpMainPage from './pages/SignUpMainPage';
 import ChattingPage from './pages/ChattingPage';
+import AskPost from './pages/AskPost';
 
 //페이지이름변경가능
 function App() {
@@ -28,6 +29,8 @@ function App() {
       <Route path='/signupmain' element={<SignUpMainPage/>}></Route>
       <Route path='/mypage' element={<MyPage/>}></Route>
       <Route path='/chat' element={<ChattingPage/>}></Route>
+      <Route path='/sellpost' element={<ChattingPage/>}></Route>
+      <Route path='/askpost' element={<AskPost/>}></Route>
 
     </Routes>
       <Footer></Footer>
