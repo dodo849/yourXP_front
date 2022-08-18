@@ -31,7 +31,7 @@ function SellAllPost() {
     const getSellPost = async () => {
         console.log("getSellPost call");
         await fetch(
-        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/${sellXP_id}`,
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/1`,
         {
             method: "GET",
             headers: {
@@ -56,9 +56,8 @@ function SellAllPost() {
     const goHome = () => {
         navigate('/');
     };
-    
-
-    return (        <>
+    return (        
+        <>
             <MediaDiv>
                 <Header>
                 <TopDiv>

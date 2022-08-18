@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {
     ReviewSection,
     ReviewTitle,
@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 function ShowReview() {
+
     return (
         <ReviewSection>
             <ReviewTitle>구매 후기</ReviewTitle>

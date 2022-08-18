@@ -29,20 +29,18 @@ function Header() {
 
     const navigate = useNavigate();
 
-    const gosignupmain = (userId) => {
-        navigate("/signupmain");
+    const goHome = () => {
+        navigate('/');
     };
 
-    const gohome = (userId) => {
-        navigate("/");
+    const goSignup = () => {
+        navigate('/signupmain');
     };
-
-    
 
     return (
         <HeaderDiv>
             <TopDiv>
-                <img onClick={()=>gohome()} src={Logo} width='170px' height='48px' />
+                <img onClick={goHome} src={Logo} width='170px' height='48px' />
                 <SearchSign>
                     <Search>
                         <input type="text" placeholder='어떤 경험을 찾고 계신가요?' />
@@ -50,7 +48,7 @@ function Header() {
                     </Search>
                     <Sign>
                         <p>로그인</p>
-                        <p onClick={()=>gosignupmain()}>회원가입</p>
+                        <p onClick={goSignup}>회원가입</p>
                     </Sign>
                 </SearchSign>  
             </TopDiv>

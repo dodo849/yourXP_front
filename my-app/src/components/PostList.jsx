@@ -58,7 +58,7 @@ function PostList() {
             
             <hr/>
             {sellPosts.slice(0).reverse().map(post => (
-                <ListCardS key={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time.slice(0,-17)} heart={post.like} price={post.price}></ListCardS>
+                <ListCardS key={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time.slice(0,-17)} heart={post.recommend} price={post.price}></ListCardS>
             ))}
             <MoreDiv>
                 <GrayButton>더보기</GrayButton>
