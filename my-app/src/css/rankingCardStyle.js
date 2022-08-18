@@ -5,6 +5,7 @@ export const Img = styled.div`
   height: 150px;
   background-color: #767676;
   border-radius: 10px;
+  overflow: hidden;
 `;
 
 export const Title = styled.div`
@@ -23,4 +24,34 @@ export const Tag = styled.div`
   font-size: 14px;
   color: #439f68;
   margin-top: 5px;
+`;
+
+export const RankNumber = styled.button`
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  background-color: #439f68;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 0px solid white;
+  font-size: 16px;
+`;
+
+export const ShowDetail = styled.div`
+  margin-top: 5px;
+  font-size: 14px;
+  color: #767676;
+  display: flex;
+  align-tiems: center;
+  p {
+    margin: 0;
+  }
+  img {
+    position: relative;
+    top: 4px;
+    left: 5px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 `;

@@ -28,6 +28,7 @@ function Header() {
     };
 
     const navigate = useNavigate();
+
     const goHome = () => {
         navigate('/');
     };
