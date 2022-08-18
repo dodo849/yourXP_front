@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 100;
   src: url(./fonts/NotoSansKr/NotoSansKR-Thin.woff2)
-      format("woff2"),
+      format("woff2"),np
     url(./fonts/NotoSansKr/NotoSansKR-Thin.woff)
       format("woff"),
     url(./fonts/NotoSansKr/NotoSansKR-Thin.otf)

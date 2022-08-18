@@ -151,9 +151,17 @@ export const NavTitle = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: flex-end;
+
+    p{
+        margin: 0;
+        z-index: 100;
+        margin-bottom: 15px;
+    }
 
     a {
         color: #767676;
+        padding: 10px 0px;
     }
     a:link {
         text-decoration: none;
@@ -167,6 +175,8 @@ export const NavTitle = styled.div`
     .active{
         text-decoration: none;
         color: #000000;
+        border-bottom: 5px solid #439F68;
+        margin-bottom: 10px;
     }
 `;
 
