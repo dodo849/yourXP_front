@@ -20,6 +20,7 @@ export const ListInfo = styled.div`
     cursor: pointer;
 `;
 export const ListText = styled.div`
+    width: 420px;
     display: flex;   
     flex-direction: column;
     align-items: flex-start; 

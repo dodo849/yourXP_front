@@ -21,7 +21,7 @@ import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 import NavBar from '../components/NavBar';
 import Kategorie from '../components/Kategorie';
 import PostList from '../components/PostList';
-import Footer from '../components/Footer';
+
 
 
 function SellPostList() {
@@ -57,7 +57,7 @@ function SellPostList() {
                 <Kategorie/>
                 <PostList/>
             </ListMain>
-            <Footer/>
+
         </MediaDiv>
     )
 }

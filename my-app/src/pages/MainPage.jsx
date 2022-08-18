@@ -19,6 +19,8 @@ import {
   ButtonRowGroup,
 } from "../css/mainPageStyle";
 import RankingCard from "../components/RankingCard";
+import Header from "../components/Header";
+import { useNavigate } from 'react-router-dom';
 
 function MainPage() {
   let rakingContent = [
@@ -85,8 +87,16 @@ function MainPage() {
     getSellPosts();
   }, []);
 
+  // 화면 전환
+  const navigate = useNavigate();
+
+  const goSellList = (userId) => {
+    navigate("/selllist");
+  };
+
   return (
     <>
+    <Header></Header>
       <Banner>
         <BannerContent>
           <BannerTitle>
@@ -122,7 +132,7 @@ function MainPage() {
           <ContentTitle>지금 참여해주세요</ContentTitle>
         </ContentIntro>
         <ButtonRowGroup>
-          <FillButton>경험 들려주기</FillButton>
+          <FillButton onClick={()=>goSellList()}>경험 들려주기</FillButton>
           <LightButton>경험 물어보기</LightButton>
         </ButtonRowGroup>
       </RankingContent>

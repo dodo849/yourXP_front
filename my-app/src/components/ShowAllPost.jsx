@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import {
     PostSection,
@@ -32,6 +32,30 @@ import PostImg2 from '../img/la2.jpg';
 function ShowAllPost() {
     const [modal, setModal] = useState(false);
     const [isHeart, setIsHeart] = useState(true);
+
+    const [sellPost, setSellPost] = useState([]);
+
+    const getSellPost = async () => {
+        console.log("getSellPosts call");
+        await fetch(
+        "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP",
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+            // json을 response에 넣는다.
+            let response = await data.json();
+            console.log(response);
+            setSellPost(response);
+        });
+    };
+
+    useEffect(() => {
+        getSellPost();
+    }, []);
 
     return (
         <PostSection>
