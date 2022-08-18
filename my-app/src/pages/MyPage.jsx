@@ -14,7 +14,6 @@ import {
 import ToggledArrow from "../components/ToggledArrow";
 
 import { useState } from "react";
-import LoginModal from "../components/LoginModal";
 
 function MyPage() {
   // dummy data

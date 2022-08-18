@@ -117,7 +117,7 @@ export const Search = styled.div`
 `;
 
 export const Sign = styled.div`
-  width: 125px;
+
   font-size: 16px;
   font-weight: regular;
   display: flex;
@@ -128,6 +128,7 @@ export const Sign = styled.div`
 
   p {
     cursor: pointer;
+    margin-right: 10px;
     &:hover {
       color: #000000;
       transition: 0.3s cubic-bezier(0.43, -0.02, 0.49, 0.95) !important;
