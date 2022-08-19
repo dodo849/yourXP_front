@@ -20,6 +20,59 @@ import {
 } from "../css/StyledComponent2";
 
 function WritePost() {
+
+  const [uploadImg, setUploadImg] = useState();
+
+  const reqWritePost = () => {
+
+    const userName = window.sessionStorage.getItem("username");
+    console.log(uploadImg)
+
+    // request body에 데이터 담기
+    let body = {
+      images: [
+          {
+              image: uploadImg
+          }
+      ],
+      title: document.querySelector(".title"),
+      text: document.querySelector(".body"),
+      price: document.querySelector(".price"),
+      user: userName,
+      tag1: null,
+      tag2: null,
+      tag3: null,
+      tag4: null,
+      tag5: null,
+      tag6: null,
+      tag7: null,
+      tag8: null,
+      tag9: null,
+      tag10: null
+    };
+
+    fetch("https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/create/", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(body), //json으로 변환
+    }).then(async (data) => {
+      // json을 response에 넣는다.
+      let response = await data.json();
+      console.log(response);
+
+      navigate("/"); // 홈으로 이동
+    });
+    
+  };
+
+  //api
+
+
+
+
+
   const navigate = useNavigate();
 
   const [imgName, setImgName] = useState("이미지 없음");
@@ -56,6 +109,7 @@ function WritePost() {
         <WriteName>제목</WriteName>
         <WriteNameBox>
           <input
+            id="title"
             type="text"
             placeholder="어떤 경험을 하셨나요? 당신의 경험을 들려주세요."
           />
@@ -63,7 +117,7 @@ function WritePost() {
 
         <WriteContent>본문</WriteContent>
         <WriteContentBox>
-          <textarea placeholder="여기에 당신의 이야기를 써주세요." />
+          <textarea id="body" placeholder="여기에 당신의 이야기를 써주세요." />
         </WriteContentBox>
 
         {/* <WriteAttachment>첨부자료</WriteAttachment> */}
@@ -82,6 +136,7 @@ function WritePost() {
               accept="image/gif, image/jpeg, image/jpg, image/png"
               onChange={(e) => {
                 setImgName(e.target.files[0].name);
+                setUploadImg(e.target.files[0]);
               }}
             />
           </WriteAttachmentBox>
@@ -89,7 +144,7 @@ function WritePost() {
 
         <WritePrice>가격</WritePrice>
         <WritePriceBox>
-          <input type="text" />
+          <input type="text" id="price" />
           <p style={{ color: "#767676" }}>원</p>
         </WritePriceBox>
 
@@ -97,7 +152,7 @@ function WritePost() {
           <button
             id="Button"
             style={{ backgroundColor: "#439F68" }}
-            onClick={() => console.log("완료하기 클릭")}
+            onClick={reqWritePost}
           >
             완료하기
           </button>
