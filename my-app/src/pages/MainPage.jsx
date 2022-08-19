@@ -81,6 +81,9 @@ function MainPage() {
     );
     // json을 response에 넣는다.
     response = await response.json();
+    if (response.images.length = 0) {
+      response.images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/450px-Flag_of_None.svg.png"]
+    }
     setSellPostTags([...sellPostTags, response]);
     console.log(sellPostTags);
   };

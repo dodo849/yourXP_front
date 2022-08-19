@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import {
   WriteSection,
@@ -19,10 +20,28 @@ import {
 } from "../css/StyledComponent2";
 
 function WritePost() {
+  const navigate = useNavigate();
 
-    const [imgName, setImgName] = useState("이미지 없음");
+  const [imgName, setImgName] = useState("이미지 없음");
 
-    console.log(imgName);
+  console.log(imgName);
+
+  const isLogin = () => {
+
+    const userName = window.sessionStorage.getItem("username");
+    if (userName == null) {
+      alert("글을 작성하려면 로그인을 먼저 해주세요 :)");
+      navigate("/login");
+      console.log(userName)
+    }
+  };
+
+  // 컴포넌트 로딩시 최초 1회 
+  useEffect(() => {
+    isLogin();
+  }, []);
+
+
   return (
     <>
       <Header></Header>
@@ -52,8 +71,7 @@ function WritePost() {
         <WriteAttachmentalign>
           <WriteAttachmentBox>
             <div>
-            <p
-            >{imgName}</p>
+              <p>{imgName}</p>
             </div>
             <label htmlFor="file">+ 이미지</label>
             <input
@@ -63,9 +81,8 @@ function WritePost() {
               name="file"
               accept="image/gif, image/jpeg, image/jpg, image/png"
               onChange={(e) => {
-                (setImgName(e.target.files[0].name));
-              }
-            }
+                setImgName(e.target.files[0].name);
+              }}
             />
           </WriteAttachmentBox>
         </WriteAttachmentalign>
@@ -73,6 +90,7 @@ function WritePost() {
         <WritePrice>가격</WritePrice>
         <WritePriceBox>
           <input type="text" />
+          <p style={{ color: "#767676" }}>원</p>
         </WritePriceBox>
 
         <WriteCompleteButton>

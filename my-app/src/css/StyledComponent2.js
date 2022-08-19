@@ -122,6 +122,8 @@ export const WriteAttachmentBox = styled.div`
   margin-top: 40px;
 
   label {
+    height: 100%;
+    display: inline-block;
     background-color: #439f68;
     font-family: "Noto Sans KR";
     display: block;
@@ -132,6 +134,7 @@ export const WriteAttachmentBox = styled.div`
     font-size: 16px;
     font-weight: 500;
     line-height: -14px;
+    margin: auto 0;
   }
 
   input {
@@ -207,6 +210,8 @@ export const WritePriceBox = styled.div`
   border-color: #bababa;
   border-radius: 10;
   backgroundcolor: #ffffff;
+  gap: 20px;
+  align-items: flex-end;
 
   input {
     color: #2d2d2d;
@@ -216,6 +221,7 @@ export const WritePriceBox = styled.div`
     border: 1px solid #439f68;
     padding: 10px 20px;
     width: 100%;
+    height: 48px;
 
     &::-webkit-input-placeholder {
       color: #c6c6c6;
@@ -224,6 +230,7 @@ export const WritePriceBox = styled.div`
     &:focus {
       outline: none; // 활성화 효과 빼기
     }
+
 `;
 //+ 안에 포인트 ok
 
@@ -231,6 +238,7 @@ export const WriteCompleteButton = styled.div`
   display: flex;
   border-radius: 10;
   backgroundcolor: #439f68;
+  margin: 20px 0 200px 0;
 
   button {
     margin-top: 25px;
