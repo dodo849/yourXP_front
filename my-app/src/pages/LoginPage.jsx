@@ -30,10 +30,10 @@ function LoginPage() {
     }).then(async (data) => {
       // json을 response에 넣는다.
       let response = await data.json();
-
       window.sessionStorage.setItem("username", response.username); // 브라우저 session에 저장
       navigate("/"); // 홈으로 이동
     }).catch((err)=>{
+      console.log(err);
       alert("비밀번호가 틀렸거나 존재하지 않는 아이디입니다");
     });
 
