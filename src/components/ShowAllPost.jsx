@@ -32,7 +32,6 @@ import PostImg2 from '../img/la2.jpg';
 function ShowAllPost({sellpost, userinfo}) {
     const [modal, setModal] = useState(false);
     const [isHeart, setIsHeart] = useState(true);
-    console.log(userinfo);
 
     return (
         <PostSection>
@@ -42,7 +41,7 @@ function ShowAllPost({sellpost, userinfo}) {
                     <ProfilePic><img src={`https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app${userinfo.profile}`}/></ProfilePic> 
                     <Profile>
                         <p>{userinfo.nickname}</p>
-                        <h6>{sellpost.create_time} · 조회 {sellpost.hits} · 추천 {sellpost.recommend}</h6>
+                        <h6>{String(sellpost.create_time).slice(0,-17)} · 조회 {sellpost.hits} · 추천 {sellpost.recommend}</h6>
                     </Profile>
                     <MoreButton>
                         <FontAwesomeIcon 
