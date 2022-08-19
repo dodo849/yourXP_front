@@ -73,8 +73,9 @@ function ShowAllPost({sellpost}) {
                 </HeartDiv>
                 <PostReact>
                     <BuyPreDiv>
-                        <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>
-                        <PostTag onClick={() => {alert("준비중입니다");}}>#경험</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#{sellpost.tag1}</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#{sellpost.tag2}</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#{sellpost.tag3}</PostTag>
                     </BuyPreDiv>
                     <GreenButton><Link to="/chat">채팅하기</Link></GreenButton>
                 </PostReact>

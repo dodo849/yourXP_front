@@ -119,7 +119,7 @@ export const PostTag = styled.button`
     color: #439F68;
     font-size: 14px;
     border: none;
-    margin: 30px 25px 30px 0px;
+    margin: 30px 15px 30px 0px;
 
     &:hover{
         cursor: pointer;

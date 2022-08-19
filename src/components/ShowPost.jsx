@@ -24,8 +24,6 @@ import {
 import { GreenButton, } from '../css/styledComponenet';
 
 function ShowPost({sellpost}) {
-    const sell_XP = useParams();
-    console.log(sell_XP);
 
     const ListLink = styled(Link)`
     text-decoration: none;
@@ -52,8 +50,9 @@ function ShowPost({sellpost}) {
                 <PostContent>
                     {sellpost.text}<br/>
                 </PostContent>
-                <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>
-                <PostTag onClick={() => {alert("준비중입니다");}}>#경험</PostTag>
+                    <PostTag onClick={() => {alert("준비중입니다");}}>#{sellpost.tag1}</PostTag>
+                    <PostTag onClick={() => {alert("준비중입니다");}}>#{sellpost.tag2}</PostTag>
+                    <PostTag onClick={() => {alert("준비중입니다");}}>#{sellpost.tag3}</PostTag>
                 <hr/>
             </PostContentDiv>
             <PostBuyDiv>
@@ -70,7 +69,7 @@ function ShowPost({sellpost}) {
                             <BuyPreNum>10장</BuyPreNum>
                         </BuyPre>
                     </BuyPreDiv>
-                    <GreenButton><ListLink to={`/selllist/${sell_XP}/detail`}>구매하기</ListLink></GreenButton>
+                    <GreenButton><ListLink to={`/selllist/${sellpost.id}/detail`}>구매하기</ListLink></GreenButton>
                 </PostBuy>
             </PostBuyDiv>
         </PostSection>

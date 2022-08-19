@@ -63,6 +63,10 @@ export const CalenderSelect = styled.div`
         padding: 0 10px;
         border: 0;
         border-radius: 5px;
+
+        &:focus {
+            outline: none;
+        }
     }
 `;
 export const SearchPoint = styled.div`
@@ -91,10 +95,57 @@ export const SearchPoint = styled.div`
     }
 
 `;
-export const PointDiv = styled.div``;
-export const PointBox = styled.div``;
-export const PointUse = styled.div``;
-export const Date = styled.div``;
-export const PointPost = styled.div``;
-export const Point = styled.div``;
-export const RemainPoint = styled.div``;
+export const PointDiv = styled.div`
+    width: 1024px;
+    display: flex;
+    flex-direction: column;
+
+    hr{
+        background-color: #bfbfbf;
+        opacity: 50%;
+        height: 1px;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+`;
+export const PointBox = styled.div`
+    width: 994px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+`;
+export const PointUse = styled.div`
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+`;
+export const Date = styled.span`
+    font-size: 12px;
+    color: #767676;
+`;
+export const Use = styled.span`
+    font-size: 20px;
+    color: #000000;
+`;
+export const PointPost = styled.span`
+    width: 400px;
+    margin: 0 100px;
+    font-size: 16px;
+    color: #767676;
+`;
+export const PointMinus = styled.span`
+font-size: 24px;
+color: #DC4646;
+`;
+export const PointPlus = styled.span`
+font-size: 24px;
+color: #5CBE81;
+`;
+export const RemainPoint = styled.span`
+font-size: 16px;
+color: #767676;
+margin-left: auto;
+`;

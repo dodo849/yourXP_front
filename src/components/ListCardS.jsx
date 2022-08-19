@@ -20,7 +20,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import ToggledHeart from './ToggledHeart';
 
-function ListCardS({ id, title, img, summary, tag, view, date, heart, price }) {   
+function ListCardS({ id, title, img, summary, tag1, tag2, tag3, view, date, heart, price }) {   
     const [isHeart, setIsHeart] = useState(true);
 
     const ListLink = styled(Link)`
@@ -37,7 +37,7 @@ function ListCardS({ id, title, img, summary, tag, view, date, heart, price }) {
                         <ListText>
                             <Title>{title}</Title>
                             <Summary>{summary}</Summary>
-                            <Tag>{tag}</Tag>
+                            <Tag>#{tag1} #{tag2} #{tag3}</Tag>
                             <Check>
                                 <h6>
                                     <FontAwesomeIcon icon={faEye} size='sm'color='#767676'/>&nbsp;{view}

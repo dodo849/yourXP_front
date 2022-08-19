@@ -18,9 +18,20 @@ import {
     SearchPoint,
     ImgAndText,
     PointPrice,
+    PointDiv,
+    PointBox,
+    PointUse,
+    Date,
+    Use,
+    PointPost,
+    PointMinus,
+    PointPlus,
+    RemainPoint,
 } from '../css/PointStyle';
 
 import PointImg from '../img/icon/point.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSistrix } from '@fortawesome/free-brands-svg-icons';
 
 function Point() {
 
@@ -52,9 +63,10 @@ function Point() {
                         </CalenderSelectDiv>
                         <SearchPoint>
                             <input type="text" placeholder='검색어를 입력하세요.' />
+                            <FontAwesomeIcon icon={faSistrix} size='lg'color='#439F68' cursor='pointer'/>
                         </SearchPoint>
                     </SearchPointDiv>
-                    {/* <PointDiv>
+                    <PointDiv>
                         <PointBox>
                             <PointUse>
                                 <Date>2022.03.26 19:24</Date>
@@ -63,9 +75,10 @@ function Point() {
                             <PointPost>
                                 '호주워킹홀리데이 모든 것을 알려드립니다' 포인트 사용
                             </PointPost>
-                            <Point>-29,000P</Point>
+                            <PointMinus>-29,000P</PointMinus>
                             <RemainPoint>잔여 3,200P</RemainPoint>
                         </PointBox>
+                        <hr/>
                         <PointBox>
                             <PointUse>
                                 <Date>2022.02.28 11:48</Date>
@@ -74,9 +87,10 @@ function Point() {
                             <PointPost>
                                 'NAVER 현직 디자이너의 웹디자인 노하우' 포인트 사용
                             </PointPost>
-                            <Point>-100,000P</Point>
+                            <PointMinus>-100,000P</PointMinus>
                             <RemainPoint>잔여 33,200P</RemainPoint>
                         </PointBox>
+                        <hr/>
                         <PointBox>
                             <PointUse>
                                 <Date>2022.02.28 11:24</Date>
@@ -85,9 +99,10 @@ function Point() {
                             <PointPost>
                                 100,000포인트 충전
                             </PointPost>
-                            <Point>+100,000P</Point>
+                            <PointPlus>+100,000P</PointPlus>
                             <RemainPoint>잔여 133,200P</RemainPoint>
                         </PointBox>
+                        <hr/>
                         <PointBox>
                             <PointUse>
                                 <Date>2022.01.16 22:06</Date>
@@ -96,10 +111,11 @@ function Point() {
                             <PointPost>
                                 '스타트업 디자이너의 역할' 포인트 사용
                             </PointPost>
-                            <Point>-35,000P</Point>
+                            <PointMinus>-35,000P</PointMinus>
                             <RemainPoint>잔여 33,200P</RemainPoint>
                         </PointBox>
-                    </PointDiv> */}
+                        <hr/>
+                    </PointDiv>
                 </MainPoint>
             </ListMain>
         </MediaDiv>

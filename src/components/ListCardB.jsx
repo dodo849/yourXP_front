@@ -19,8 +19,8 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 
-function ListCardB({ id, title, summary, tag, view, date, price, deadline}) {
-    
+function ListCardB({ id, title, summary, tag1, tag2, tag3, view, date, price, deadline}) {
+
     const ListLink = styled(Link)`
     text-decoration: none;
     `;
@@ -33,7 +33,7 @@ function ListCardB({ id, title, summary, tag, view, date, price, deadline}) {
                         <ListText>
                             <Title>{title}</Title>
                             <Summary>{summary}</Summary>
-                            <Tag>{tag}</Tag>
+                            <Tag>#{tag1} #{tag2} #{tag3}</Tag>
                             <Check>
                                 <h6>
                                     <FontAwesomeIcon icon={faEye} size='sm'color='#767676'/>&nbsp;{view}

@@ -26,6 +26,7 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 function WonderPost({buypost}) {
     const [modal, setModal] = useState(false);
 
+
     return (
         <PostSection>
             <PostTitleDiv>
@@ -60,8 +61,9 @@ function WonderPost({buypost}) {
                 <PostContent>{buypost.text}</PostContent>
                 <PostReact>
                     <BuyPreDiv>
-                        <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>
-                        <PostTag onClick={() => {alert("준비중입니다");}}>#경험</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#{buypost.tag1}</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#{buypost.tag2}</PostTag>
+                        <PostTag onClick={() => {alert("준비중입니다");}}>#{buypost.tag3}</PostTag>
                     </BuyPreDiv>
                     <GreenButton><Link to="/chat">채팅하기</Link></GreenButton>
                 </PostReact>
