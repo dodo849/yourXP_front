@@ -1,5 +1,6 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React , {useState, useEffect} from 'react'
+import { useNavigate, Link, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 
 import {
     MediaDiv,
@@ -25,10 +26,38 @@ import ShowReview from '../components/ShowReview';
 
 
 function SellShowPost() {
+    const [sellPost, setSellPost] = useState([]);
+    const params = useParams();
+    console.log(params.postId);
+
+    const getSellPost = () => {
+        console.log("getSellPosts call");
+        fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/${params.postId}`,
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+        // json을 response에 넣는다.
+        let response = await data.json();
+        console.log(response);
+        setSellPost(response);
+        });
+    };
+
+    useEffect(() => {
+        getSellPost();
+    }, []);
+
     const navigate = useNavigate();
     const goHome = () => {
         navigate('/');
     };
+
+
     return (
         <>
             <MediaDiv>
@@ -55,7 +84,7 @@ function SellShowPost() {
                 </Header>
                 
                 <Main>
-                    <ShowPost/>
+                    <ShowPost sellpost={sellPost}/>
                     <ShowReview/>
                 </Main>
             </MediaDiv>

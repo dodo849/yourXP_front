@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState}from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -30,6 +30,7 @@ function BuyPostList() {
     const goHome = () => {
         navigate('/');
     };
+
     return (
         <MediaDiv>
             <Header>

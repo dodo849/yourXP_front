@@ -272,6 +272,7 @@ export const PostSearch = styled.div`
   }
 `;
 
+
 //ListButton
 export const Button = styled.div`
   display: flex;

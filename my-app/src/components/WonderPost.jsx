@@ -23,42 +23,18 @@ import Moremodal from '../components/MoreModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
-function WonderPost() {
+function WonderPost({buypost}) {
     const [modal, setModal] = useState(false);
-
-    const [buyPost, setBuyPost] = useState([]);
-
-    const getBuyPost = async () => {
-        console.log("getSellPosts call");
-        await fetch(
-        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/buyXP/buys/detail/2`,
-        {
-            method: "GET",
-            headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            },
-        }
-        ).then(async (data) => {
-            // json을 response에 넣는다.
-            let response = await data.json();
-            console.log(response);
-            setBuyPost(response);
-        });
-    };
-
-    useEffect(() => {
-        getBuyPost();
-    }, []);
 
     return (
         <PostSection>
             <PostTitleDiv>
-                <h2>교환 학생 갔다오신분 알려주세요</h2>
+                <h2>{buypost.title}</h2>
                 <ProfileDiv>
                     <ProfilePic/>
                     <Profile>
-                        <p>{buyPost.user}</p>
-                        <h6>{buyPost.create_time.slice(0,-17)} · 조회 {buyPost.hits}</h6>
+                        <p>{buypost.user}</p>
+                        <h6>{buypost.create_time} · 조회 {buypost.hits}</h6>
                     </Profile>
 
                     <MoreButton>
@@ -74,14 +50,14 @@ function WonderPost() {
                 </ProfileDiv>
                 <PointDiv>
                     <Point>Point</Point>
-                    <PointPrice>{buyPost.price}</PointPrice>
+                    <PointPrice>{buypost.price}</PointPrice>
                     <Point>마감</Point>
-                    <PointPrice>{buyPost.deadline.slice(0,-10)}</PointPrice>
+                    <PointPrice>{buypost.deadline}</PointPrice>
                 </PointDiv>
                 <hr/>
             </PostTitleDiv>
             <PostContentDiv>
-                <PostContent>{buyPost.text}</PostContent>
+                <PostContent>{buypost.text}</PostContent>
                 <PostReact>
                     <BuyPreDiv>
                         <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>

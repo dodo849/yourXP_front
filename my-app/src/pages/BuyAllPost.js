@@ -1,5 +1,5 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 import {
     MediaDiv,
     Main,
@@ -26,6 +26,33 @@ function BuyAllPost() {
     const goHome = () => {
         navigate('/');
     };
+    const params = useParams();
+    console.log(params.postId);
+
+    const [buyPost, setBuyPost] = useState([]);
+
+    const getBuyPost = async () => {
+        console.log("getSellPosts call");
+        await fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/buyXP/buys/detail/${params.postId}`,
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+            // json을 response에 넣는다.
+            let response = await data.json();
+            console.log(response);
+            setBuyPost(response);
+        });
+    };
+
+    useEffect(() => {
+        getBuyPost();
+    }, []);
+
     return (
         <>
             <MediaDiv>
@@ -52,7 +79,7 @@ function BuyAllPost() {
                 </Header>
 
                 <Main>
-                    <WonderPost/>
+                    <WonderPost buypost={buyPost}/>
                 </Main>
             </MediaDiv>
         </>

@@ -26,10 +26,10 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />}></Route>
           <Route path="/selllist" element={<SellPostList />}></Route>
-          <Route path="/selllist/post" element={<SellShowPost />}></Route>
-          <Route path="/selllist/post/1" element={<SellAllPost />}></Route>
+          <Route path="/selllist/:postId" element={<SellShowPost />}></Route>
+          <Route path="/selllist/:postId/detail" element={<SellAllPost />}></Route>
           <Route path="/buylist" element={<BuyPostList />}></Route>
-          <Route path="/buylist/1" element={<BuyAllPost />}></Route>
+          <Route path="/buylist/:postId" element={<BuyAllPost />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/signupmain" element={<SignUpMainPage />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
