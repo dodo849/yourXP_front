@@ -22,31 +22,31 @@ import RankingCard from "../components/RankingCard";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 
+let dummyContent = [
+  {
+    id: 1,
+    title: "제가 LA에 있었을 때 일입니다..",
+    tag: "#LA #경험",
+    imgName: "img_LA.png",
+  },
+  {
+    id: 2,
+    title: "21살, 산티아고 순례길 완주 성공기",
+    tag: "#여행 #순례길",
+    imgName: "img_santiago.png",
+  },
+  {
+    id: 3,
+    title: "구글 본사 10년 근무 노하우 전부..",
+    tag: "#IT #직장",
+    imgName: "img_google.png",
+  },
+];
 
 function MainPage() {
-  let dummyContent = [
-    {
-      id: 1,
-      title: "제가 LA에 있었을 때 일입니다..",
-      tag: "#LA #경험",
-      imgName: "img_LA.png",
-    },
-    {
-      id: 2,
-      title: "21살, 산티아고 순례길 완주 성공기",
-      tag: "#여행 #순례길",
-      imgName: "img_santiago.png",
-    },
-    {
-      id: 3,
-      title: "구글 본사 10년 근무 노하우 전부..",
-      tag: "#IT #직장",
-      imgName: "img_google.png",
-    },
-  ];
-
   const [sellPosts, setSellPosts] = useState([]);
   const [sellPostTags, setSellPostTags] = useState([]);
+  const [bodyText, setBodyText] = useState();
 
   const getSellPosts = async () => {
     console.log("getSellPosts call");
@@ -63,29 +63,33 @@ function MainPage() {
     response = await response.json();
     console.log(response);
 
-    response.map((item)=>{
+    response.map((item) => {
       if (item.images.length == 0) {
-        item.images.push({image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/450px-Flag_of_None.svg.png"})
+        item.images.push({
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/450px-Flag_of_None.svg.png",
+        });
       }
-    })
+    });
 
     setSellPosts(response);
   };
-
-
 
   // 화면 전환
   const navigate = useNavigate();
 
   const goWritePost = () => {
-    navigate("/writepost");
+    console.log(document.querySelector(".bodyText").value);
+    navigate("/writepost", {
+      state: { bodyText: document.querySelector(".bodyText").value },
+    });
   };
 
   const goAskPost = () => {
     navigate("/askpost");
   };
 
-  // 컴포넌트 로딩시 최초 1회 
+  // 컴포넌트 로딩시 최초 1회
   useEffect(() => {
     getSellPosts();
   }, []);
@@ -103,8 +107,13 @@ function MainPage() {
           <BannerDescription>
             어떤 경험을 하셨나요? 당신만의 특별한 경험을 들려주세요
           </BannerDescription>
-          <BannerInput placeholder="여기에 당신의 경험을 써주세요"></BannerInput>
-          <TranslucentButton>경험 올리기</TranslucentButton>
+          <BannerInput
+            placeholder="여기에 당신의 경험을 써주세요"
+            className="bodyText"
+          ></BannerInput>
+          <TranslucentButton onClick={goWritePost}>
+            경험 올리기
+          </TranslucentButton>
         </BannerContent>
       </Banner>
 
@@ -117,34 +126,37 @@ function MainPage() {
           </ContentDescription>
         </ContentIntro>
         <RankingCards>
-          
           {sellPosts.length == 0
-            ? dummyContent.map((sellPost, index) => (
-              index < 3 &&
-                <RankingCard
-                  key={index}
-                  id={sellPost.id}
-                  imgName={sellPost.imgName}
-                  title={sellPost.title}
-                  tag1={sellPost.tag}
-                  rankNumber={index + 1}
-                  isApiSuccess={false}
-                ></RankingCard>
-              ))
-            : sellPosts.map((sellPost, index) => (
-              index < 3 &&
-                <RankingCard
-                  key={sellPost.id}
-                  id={sellPost.id}
-                  imgName={sellPost.images[0].image}
-                  title={sellPost.title}
-                  tag1={sellPost.tag1}
-                  tag2={sellPost.tag2}
-                  tag3={sellPost.tag3}
-                  rankNumber={index+1}
-                  isApiSuccess={true}
-                ></RankingCard>
-              ))}
+            ? dummyContent.map(
+                (sellPost, index) =>
+                  index < 3 && (
+                    <RankingCard
+                      key={index}
+                      id={sellPost.id}
+                      imgName={sellPost.imgName}
+                      title={sellPost.title}
+                      tag1={sellPost.tag}
+                      rankNumber={index + 1}
+                      isApiSuccess={false}
+                    ></RankingCard>
+                  )
+              )
+            : sellPosts.map(
+                (sellPost, index) =>
+                  index < 3 && (
+                    <RankingCard
+                      key={sellPost.id}
+                      id={sellPost.id}
+                      imgName={sellPost.images[0].image}
+                      title={sellPost.title}
+                      tag1={sellPost.tag1}
+                      tag2={sellPost.tag2}
+                      tag3={sellPost.tag3}
+                      rankNumber={index + 1}
+                      isApiSuccess={true}
+                    ></RankingCard>
+                  )
+              )}
         </RankingCards>
       </RankingContent>
 
