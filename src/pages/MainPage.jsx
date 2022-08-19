@@ -150,7 +150,7 @@ function MainPage() {
                 <RankingCard
                   key={sellPost.id}
                   id={sellPost.id}
-                  imgName={sellPost.images[0].image}
+                  imgName={sellPost.images[0]}
                   title={sellPost.title}
                   tag1={sellPost.tag1}
                   tag2={sellPost.tag2}

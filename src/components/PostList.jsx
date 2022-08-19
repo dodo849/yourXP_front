@@ -60,7 +60,7 @@ function PostList() {
             </Button>
             <hr/>
             {sellPosts.map(post => (
-                <ListCardS key={post.id} id={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time.slice(0,-17)} heart={post.recommend} price={post.price}></ListCardS>
+                <ListCardS key={post.id} id={post.id} title={post.title} summary={post.text} tag1={post.tag1} tag2={post.tag2} tag3={post.tag3} view={post.hits} date={post.create_time.slice(0,-17)} heart={post.recommend} price={post.price}></ListCardS>
             ))}
             <MoreDiv>
                 <GrayButton>더보기</GrayButton>
