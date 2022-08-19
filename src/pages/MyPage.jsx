@@ -15,6 +15,7 @@ import ToggledArrow from "../components/ToggledArrow";
 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import Header from "../components/Header";
 
 function MyPage() {
   // dummy data
@@ -68,6 +69,7 @@ function MyPage() {
   return (
     <>
       {/* <LoginModal/> */}
+      <Header></Header>
       <MyPageTitle>
         <h1>마이페이지</h1>
       </MyPageTitle>

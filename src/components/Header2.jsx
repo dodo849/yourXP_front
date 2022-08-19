@@ -44,6 +44,10 @@ function Header2() {
         navigate("/login");
     };
 
+    const goMypage = () => {
+        navigate("/mypage");
+      };
+
     // 로그인 로직
     const [userName, setUserName] = useState();
 
@@ -85,7 +89,7 @@ function Header2() {
                 </>
                 ) : (
                 <>
-                    <p onClick={goLogin}>{userName}님 안녕하세요</p>
+                    <p onClick={goMypage}>{userName}님 안녕하세요</p>
                     <p onClick={logout}>로그아웃</p>
                 </>
                 )}
