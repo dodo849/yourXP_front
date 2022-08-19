@@ -23,7 +23,9 @@ import {
 } from '../css/PostStyle';
 import { GreenButton, } from '../css/styledComponenet';
 
-function ShowPost({sellpost}) {
+function ShowPost({sellpost, userinfo}) {
+
+    console.log(userinfo.nickname);
 
     const ListLink = styled(Link)`
     text-decoration: none;
@@ -36,7 +38,7 @@ function ShowPost({sellpost}) {
                 <ProfileDiv>
                     <ProfilePic/>
                     <Profile>
-                        <p>{sellpost.user}</p>
+                        <p>{userinfo.nickname}</p>
                         <h6>{sellpost.create_time} · 조회 {sellpost.hits} · 추천 {sellpost.recommend}</h6>
                     </Profile>
                 </ProfileDiv>

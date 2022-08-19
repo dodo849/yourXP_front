@@ -15,29 +15,44 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 function ShowReview() {
+    const params = useParams();
 
+    const [allreview, setAllReview] = useState(null);
+
+    const getAllReview = () => {
+        console.log("getAllReview call");
+        fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/${params.postId}/reviews`,
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+        // json을 response에 넣는다.
+        let response = await data.json();
+        console.log("==================res==");
+        console.log(response);
+        setAllReview(response);
+        });
+    };
+
+    useEffect(() => {
+        getAllReview();
+    }, []);
+    
     return (
         <ReviewSection>
             <ReviewTitle>구매 후기</ReviewTitle>
             <ReviewBox>
-                <ReviewContent>누구든지 체포 또는 구속을 당한 때에는 적부의 심사를 법원에 청구할 권리를 가진다. 위원은 정당에 가입하거나 정치에 관여할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 국가는 과학기술의 혁신과 정보 및 인력의 개발을 통하여 국민경제의 발전에 노력하여야 한다. 대통령은근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 국가는 과학기술의 혁신</ReviewContent>
+                <ReviewContent>{allreview != null && allreview[0].body}</ReviewContent>
                 <ReviewInfo>
                     <Reviewer>작성자 abcdef님</Reviewer>
-                    <ReviewGrade>4.0</ReviewGrade>
+                    <ReviewGrade>{allreview != null && allreview[0].grad}</ReviewGrade>
                     <ReviewStar>
                         <FontAwesomeIcon icon={faStar} size='lg' color='#BADC34'/>
                         <FontAwesomeIcon icon={faStar} size='lg' color='#BADC34'/>
-                        <FontAwesomeIcon icon={faStar} size='lg' color='#BADC34'/>
-                        <FontAwesomeIcon icon={faStar} size='lg' color='#BADC34'/>
-                    </ReviewStar>
-                </ReviewInfo>
-            </ReviewBox>
-            <ReviewBox>
-                <ReviewContent> 누구든지 체포 또는 구속을 당한 때에는 적부의 심사를 법원에 청구할 권리를 가진다. 위원은 정당에 가입하거나 정치에 관여할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 국가는 과학기술의 혁신과 정보 및 인력의 개발을 통하여 국민경제의 발전에 노력하여야 한다. 대통령은근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 국가는 과학기술의 혁신</ReviewContent>
-                <ReviewInfo>
-                    <Reviewer>작성자 abcdef님</Reviewer>
-                    <ReviewGrade>3.0</ReviewGrade>
-                    <ReviewStar>
                         <FontAwesomeIcon icon={faStar} size='lg' color='#BADC34'/>
                         <FontAwesomeIcon icon={faStar} size='lg' color='#BADC34'/>
                         <FontAwesomeIcon icon={faStar} size='lg' color='#BADC34'/>

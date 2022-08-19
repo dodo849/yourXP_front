@@ -44,7 +44,7 @@ function SellShowPost() {
         ).then(async (data) => {
         // json을 response에 넣는다.
         let response = await data.json();
-        console.log(response);
+        // console.log(response);
         setSellPost(response);
         });
     };
@@ -52,6 +52,32 @@ function SellShowPost() {
     useEffect(() => {
         getSellPost();
     }, []);
+
+    //user
+    const [userInfo, setUserInfo] = useState([]);
+
+    const getUserInfo = () => {
+        console.log("getSellPosts call");
+        fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/user/${sellPost.user}`,
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+        // json을 response에 넣는다.
+        let response = await data.json();
+        console.log(response);
+        setUserInfo(response);
+        });
+    };
+
+    useEffect(() => {
+        getUserInfo();
+    }, []);
+
 
     const navigate = useNavigate();
     const goHome = () => {
@@ -85,7 +111,7 @@ function SellShowPost() {
                 </Header>
                 
                 <Main>
-                    <ShowPost sellpost={sellPost}/>
+                    <ShowPost sellpost={sellPost} userinfo={userInfo}/>
                     <ShowReview />
                 </Main>
             </MediaDiv>
