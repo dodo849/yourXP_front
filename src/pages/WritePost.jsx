@@ -32,7 +32,7 @@ function WritePost() {
     let body = {
       images: [
           {
-              image: uploadImg
+              image: btoa(uploadImg)
           }
       ],
       title: document.querySelector(".title"),
