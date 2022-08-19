@@ -32,6 +32,13 @@ export const Img = styled.div`
     border: none;
     border-radius: 10px;
     margin: 10px 20px 10px 15px;
+
+    img {
+        width: 220px;
+        height: 125px;
+        border: none;
+        border-radius: 10px;
+    }
 `;
 export const Title = styled.span`
     font-size: 18px;

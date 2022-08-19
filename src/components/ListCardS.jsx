@@ -20,20 +20,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import ToggledHeart from './ToggledHeart';
 
-function ListCardS({ id, title, img, summary, tag1, tag2, tag3, view, date, heart, price }) {   
+function ListCardS({ id, title, imgName, summary, tag1, tag2, tag3, view, date, heart, price }) {   
     const [isHeart, setIsHeart] = useState(true);
 
     const ListLink = styled(Link)`
     text-decoration: none;
     `;
-    console.log(id);
 
     return (
         <>
             <List>
                 <ListLink to={`/selllist/${id}`}>
                     <ListInfo>
-                        <Img>{img}</Img>
+                        <Img><img src={`https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app${imgName}`}/></Img>
                         <ListText>
                             <Title>{title}</Title>
                             <Summary>{summary}</Summary>

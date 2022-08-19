@@ -27,7 +27,6 @@ import ShowReview from '../components/ShowReview';
 
 function SellShowPost() {
     const [sellPost, setSellPost] = useState([]);
-    const [allReview, setAllReview] = useState([]);
     
     const params = useParams();
     console.log(params.postId);
@@ -52,28 +51,6 @@ function SellShowPost() {
 
     useEffect(() => {
         getSellPost();
-    }, []);
-
-    const getAllReview = () => {
-        console.log("getAllReview call");
-        fetch(
-        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/${params.postId}/reviews`,
-        {
-            method: "GET",
-            headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            },
-        }
-        ).then(async (data) => {
-        // json을 response에 넣는다.
-        let response = await data.json();
-        console.log(response);
-        setAllReview(response);
-        });
-    };
-
-    useEffect(() => {
-        getAllReview();
     }, []);
 
     const navigate = useNavigate();
@@ -109,7 +86,7 @@ function SellShowPost() {
                 
                 <Main>
                     <ShowPost sellpost={sellPost}/>
-                    <ShowReview showreview={allReview} />
+                    <ShowReview />
                 </Main>
             </MediaDiv>
         </>

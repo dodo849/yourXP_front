@@ -14,6 +14,7 @@ import {
 import ToggledArrow from "../components/ToggledArrow";
 
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function MyPage() {
   // dummy data
@@ -58,6 +59,12 @@ function MyPage() {
   // 내가 산 경험 목록 접기/펼치기
   const [isShowMyBuyPost, setIsShowMyBuyPost] = useState(false);
 
+
+  const navigate = useNavigate();
+  const goPoint = () => {
+    navigate("/point");
+  };
+
   return (
     <>
       {/* <LoginModal/> */}
@@ -98,9 +105,7 @@ function MyPage() {
                   Point 충전하기
                 </button>
                 <button
-                  onClick={() => {
-                    alert("준비중입니다");
-                  }}
+                  onClick={goPoint}
                 >
                   사용내역 보기
                 </button>
