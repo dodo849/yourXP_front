@@ -63,30 +63,15 @@ function MainPage() {
     response = await response.json();
     console.log(response);
 
-    // response.map((item) => getSellPostTags(item.id));
+    response.map((item)=>{
+      if (item.images.length == 0) {
+        item.images.push({image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/450px-Flag_of_None.svg.png"})
+      }
+    })
 
     setSellPosts(response);
   };
 
-  const getSellPostTags = async (postId) => {
-    console.log("getSellXPTags call");
-    let response = await fetch(
-      `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/tag/${postId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      }
-    );
-    // json을 response에 넣는다.
-    response = await response.json();
-    if (response.images.length = 0) {
-      response.images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/450px-Flag_of_None.svg.png"]
-    }
-    setSellPostTags([...sellPostTags, response]);
-    console.log(sellPostTags);
-  };
 
 
   // 화면 전환
@@ -132,6 +117,7 @@ function MainPage() {
           </ContentDescription>
         </ContentIntro>
         <RankingCards>
+          
           {sellPosts.length == 0
             ? dummyContent.map((sellPost, index) => (
               index < 3 &&
@@ -150,7 +136,7 @@ function MainPage() {
                 <RankingCard
                   key={sellPost.id}
                   id={sellPost.id}
-                  imgName={sellPost.images[0]}
+                  imgName={sellPost.images[0].image}
                   title={sellPost.title}
                   tag1={sellPost.tag1}
                   tag2={sellPost.tag2}
