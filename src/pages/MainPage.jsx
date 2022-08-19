@@ -51,7 +51,7 @@ function MainPage() {
   const getSellPosts = async () => {
     console.log("getSellPosts call");
     let response = await fetch(
-      "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/views",
+      "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/viewsrank",
       {
         method: "GET",
         headers: {

@@ -24,35 +24,26 @@ function WritePost() {
   const [uploadImg, setUploadImg] = useState();
   const location = useLocation();
 
-  console.log(`bodyText: ${location.state.bodyText}`);
 
   const reqWritePost = () => {
     const userName = window.sessionStorage.getItem("username");
     console.log(uploadImg);
 
-    const reqImg = new FormData();
+    const formData = new FormData();
+    formData.append("files",uploadImg)
+
+    console.log(document.querySelector("#title").value);
 
     // request body에 데이터 담기
     let body = {
-      images: [
-        {
-          image: uploadImg,
-        },
-      ],
-      title: document.querySelector(".title"),
-      text: document.querySelector(".body"),
-      price: document.querySelector(".price"),
-      user: userName,
-      tag1: null,
-      tag2: null,
-      tag3: null,
-      tag4: null,
-      tag5: null,
-      tag6: null,
-      tag7: null,
-      tag8: null,
-      tag9: null,
-      tag10: null,
+      // images: [
+      //   {
+      //     image: formData,
+      //   },
+      // ],
+      title: document.querySelector("#title").value,
+      text: document.querySelector("#body").value,
+      price: document.querySelector("#price").value,
     };
 
     fetch(
@@ -105,7 +96,6 @@ function WritePost() {
         <WriteSubTitle>
           어떤 경험을 하셨나요? 당신만의 특별한 경험을 들려주세요.
         </WriteSubTitle>
-
         <WriteName>제목</WriteName>
         <WriteNameBox>
           <input
@@ -117,11 +107,20 @@ function WritePost() {
 
         <WriteContent>본문</WriteContent>
         <WriteContentBox>
-            <textarea
+        {/* {location.state.bodyText == null ? <textarea
               id="body"
               placeholder="여기에 당신의 이야기를 써주세요."
-              defaultValue={ location.state.bodyText }
+            ></textarea> : <textarea
+            id="body"
+            placeholder="여기에 당신의 이야기를 써주세요."
+            defaultValue={ location.state.bodyText }
+          ></textarea>} */}
+
+<textarea
+              id="body"
+              placeholder="여기에 당신의 이야기를 써주세요."
             ></textarea>
+            
         </WriteContentBox>
 
         {/* <WriteAttachment>첨부자료</WriteAttachment> */}
