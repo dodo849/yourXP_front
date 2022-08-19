@@ -29,18 +29,19 @@ import ToggledHeart from '../components/ToggledHeart';
 import PostImg1 from '../img/la.jpg';
 import PostImg2 from '../img/la2.jpg';
 
-function ShowAllPost({sellpost}) {
+function ShowAllPost({sellpost, userinfo}) {
     const [modal, setModal] = useState(false);
     const [isHeart, setIsHeart] = useState(true);
+    console.log(userinfo);
 
     return (
         <PostSection>
             <PostTitleDiv>
                 <h2>{sellpost.title}</h2>
                 <ProfileDiv>
-                    <ProfilePic/>
+                    <ProfilePic><img src={`https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app${userinfo.profile}`}/></ProfilePic> 
                     <Profile>
-                        <p>{sellpost.user}</p>
+                        <p>{userinfo.nickname}</p>
                         <h6>{sellpost.create_time} · 조회 {sellpost.hits} · 추천 {sellpost.recommend}</h6>
                     </Profile>
                     <MoreButton>
@@ -59,8 +60,7 @@ function ShowAllPost({sellpost}) {
             </PostTitleDiv>
             <PostContentDiv>
                 <PostImgDiv>
-                    <PostImg/>
-                    <PostImg/>
+                    <PostImg><img src={`${sellpost.images[0].image}`}/></PostImg>
                 </PostImgDiv>
                 <PostContent>
                     {sellpost.text}
