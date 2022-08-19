@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import {
     PostListDiv,
@@ -40,6 +41,11 @@ function PostListB() {
         getBuyPosts();
     }, []);
 
+    const navigate = useNavigate();
+    const goAskPost = () => {
+        navigate("/askpost");
+    };
+
     return (
         <PostListDiv>
             <PostSearchDiv>
@@ -49,7 +55,7 @@ function PostListB() {
                 </PostSearch>
             </PostSearchDiv>
             <Button>
-                <GreenButton onClick={() => {alert("준비중입니다");}}>글쓰기</GreenButton>
+                <GreenButton onClick={goAskPost}>글쓰기</GreenButton>
             </Button>
             <hr/>
             {buyPosts.slice(0).reverse().map(post => (

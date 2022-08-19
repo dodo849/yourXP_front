@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import {
     PostListDiv,
@@ -22,7 +22,7 @@ import StandardModal from '../components/StandardModal';
 function PostList() {
     const [modal, setModal] = useState(false);
     const [sellPosts, setSellPosts] = useState([]);
-
+    const [bodyText, setBodyText] = useState();
 
     const getSellPosts = async () => {
         console.log("getSellPosts call");
@@ -46,6 +46,13 @@ function PostList() {
         getSellPosts();
     }, []);
 
+      // 화면 전환
+    const navigate = useNavigate();
+
+    const goWritePost = () => {
+        navigate("/writepost")
+    };
+    
     return (
         <PostListDiv>
             <PostSearchDiv>
@@ -57,7 +64,7 @@ function PostList() {
             <Button>
                 <WhiteButton onClick={() => { setModal(!modal)}}>추천순</WhiteButton>
                 {modal === true ? <StandardModalDiv><StandardModal/></StandardModalDiv> : null}
-                <GreenButton onClick={() => {alert("준비중입니다");}}>글쓰기</GreenButton>
+                <GreenButton onClick={goWritePost}>글쓰기</GreenButton>
             </Button>
             <hr/>
             {sellPosts.map(post => (

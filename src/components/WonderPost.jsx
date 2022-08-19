@@ -25,16 +25,15 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
 function WonderPost({buypost, userinfo}) {
     const [modal, setModal] = useState(false);
-
     return (
         <PostSection>
             <PostTitleDiv>
                 <h2>{buypost.title}</h2>
                 <ProfileDiv>
-                    <ProfilePic/>
+                    <ProfilePic><img src={`https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app${userinfo.profile}`}/></ProfilePic>
                     <Profile>
                         <p>{userinfo.nickname}</p>
-                        <h6>{buypost.create_time} · 조회 {buypost.hits}</h6>
+                        <h6>{String(buypost.create_time).slice(0,-17)} · 조회 {buypost.hits}</h6>
                     </Profile>
 
                     <MoreButton>
@@ -52,7 +51,7 @@ function WonderPost({buypost, userinfo}) {
                     <Point>Point</Point>
                     <PointPrice>{buypost.price}</PointPrice>
                     <Point>마감</Point>
-                    <PointPrice>{buypost.deadline}</PointPrice>
+                    <PointPrice>{String(buypost.deadline).slice(0,-10)}</PointPrice>
                 </PointDiv>
                 <hr/>
             </PostTitleDiv>
