@@ -23,9 +23,8 @@ import Moremodal from '../components/MoreModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
-function WonderPost({buypost}) {
+function WonderPost({buypost, userinfo}) {
     const [modal, setModal] = useState(false);
-
 
     return (
         <PostSection>
@@ -34,7 +33,7 @@ function WonderPost({buypost}) {
                 <ProfileDiv>
                     <ProfilePic/>
                     <Profile>
-                        <p>{buypost.user}</p>
+                        <p>{userinfo.nickname}</p>
                         <h6>{buypost.create_time} · 조회 {buypost.hits}</h6>
                     </Profile>
 

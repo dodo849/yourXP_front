@@ -30,10 +30,16 @@ export const PostTitleDiv = styled.div`
 export const ProfilePic = styled.image`
     width: 45px;
     height: 45px;
-    border-radius: 10px;
+    border-radius: 10px;    
     background-color: #767676;
     margin: 5px;
     margin-left: 0px;
+
+    img {
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+    }
 `;
 
 export const Profile = styled.div`
@@ -132,16 +138,22 @@ export const PostTag = styled.button`
 export const PostImgDiv = styled.div`
     display: flex;
     margin: 5px 40px;
-
 `;
 
 export const PostImg = styled.image`
     width: 280px;
     height: 175px;
     background-color: #767676;
-    margin: 5px;
+    margin: 5px auto;
     border: none;
     border-radius:10px; 
+
+    img {
+        width: 280px;
+        height: 175px;
+        background-color: #767676;
+        border-radius:10px; 
+    }
 `;
 
 export const PostReact = styled.div`

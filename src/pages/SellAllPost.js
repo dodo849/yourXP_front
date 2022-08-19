@@ -4,30 +4,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
     MediaDiv,
     Main,
-    Header,
-    TopDiv,
-    SearchSign,
-    Search,
-    Sign,
-    MenuInfo,
-    InfoBig,
-    InfoSmall,
 } from '../css/styledComponenet';
 
-import Logo from '../img/logo.png';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSistrix } from '@fortawesome/free-brands-svg-icons';
-
-import NavBar from '../components/NavBar';
 import ShowAllPost from '../components/ShowAllPost';
 import WriteReview from '../components/WriteReview';
+import Header2 from '../components/Header2';
 
 
 function SellAllPost() {
     const [sellPost, setSellPost] = useState([]);
     const params = useParams();
-    console.log(params.postId);
 
     const getSellPost = () => {
         console.log("getSellPosts call");
@@ -42,14 +28,40 @@ function SellAllPost() {
         ).then(async (data) => {
         // json을 response에 넣는다.
         let response = await data.json();
+        if(sellPost.length == 0){
+            console.log("response user check");
+            console.log(response.user);
+            setSellPost(response);
+            getUserInfo(response.user);
+        }
+        });
+    };
+
+    const getUserInfo = (user) => {
+        console.log("getUserInfo call");
+        fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/user/${user}`,
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+        ).then(async (data) => {
+        // json을 response에 넣는다.
+        let response = await data.json();
+        console.log("get user data");
         console.log(response);
-        setSellPost(response);
+        setUserInfo(response);
         });
     };
 
     useEffect(() => {
         getSellPost();
     }, []);
+
+    //user
+    const [userInfo, setUserInfo] = useState([]);
 
     const navigate = useNavigate();
 
@@ -58,36 +70,17 @@ function SellAllPost() {
     };
 
 
-  const goLogin = () => {
-    navigate("/login");
-  };
+    const goLogin = () => {
+        navigate("/login");
+    };
     
     return (        
         <>
             <MediaDiv>
-                <Header>
-                <TopDiv>
-                        <img onClick={goHome} src={Logo} width='170px' height='48px'/>
-                        <SearchSign>
-                            <Search>
-                                <input type="text" placeholder='어떤 경험을 찾고 계신가요?' />
-                                <FontAwesomeIcon icon={faSistrix} size='lg'color='#439F68' cursor='pointer'/>
-                            </Search>
-                            <Sign>
-                                <p onClick={goLogin}>로그인</p>
-                                <p>회원가입</p>
-                            </Sign>
-                        </SearchSign>  
-                    </TopDiv>
-                    
-                    <MenuInfo>
-                        <InfoBig>여러 경험을 <span>들어봐요</span></InfoBig>
-                        <InfoSmall>다른 사람의 경험을 읽고 반응을 남겨주세요!</InfoSmall>
-                    </MenuInfo>
-                    <NavBar/>
-                </Header>
+                <Header2/>
                 <Main>
-                    <ShowAllPost sellpost={sellPost}/>
+                    { sellPost.length != 0 && <ShowAllPost sellpost={sellPost} userinfo={userInfo}/>}
+                    
                     <WriteReview/>
                 </Main>
             </MediaDiv>
