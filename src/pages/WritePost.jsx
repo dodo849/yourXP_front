@@ -30,21 +30,24 @@ function WritePost() {
     console.log(uploadImg);
 
     const formData = new FormData();
-    formData.append("files",uploadImg)
+    formData.append("image",uploadImg)
 
-    console.log(document.querySelector("#title").value);
+    console.log("값 확인")
+    console.log(document.querySelector("#file").value);
 
     // request body에 데이터 담기
     let body = {
-      // images: [
-      //   {
-      //     image: formData,
-      //   },
-      // ],
+      images: [
+        {
+          image: formData,
+        },
+      ],
       title: document.querySelector("#title").value,
       text: document.querySelector("#body").value,
       price: document.querySelector("#price").value,
     };
+
+    console.log(body);
 
     fetch(
       "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/create/",
@@ -69,8 +72,6 @@ function WritePost() {
   const navigate = useNavigate();
 
   const [imgName, setImgName] = useState("이미지 없음");
-
-  console.log(imgName);
 
   const isLogin = () => {
     const userName = window.sessionStorage.getItem("username");

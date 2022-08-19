@@ -1,50 +1,60 @@
-import React, {useState, useEffect} from 'react'
+
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+
 import styled from "styled-components";
 import {
-    PostListDiv,
-    PostSearchDiv,
-    PostSearch,
-    Button,
-    WhiteButton,
-    GreenButton,
-    MoreDiv,
-    GrayButton,
-    StandardModalDiv,
-    } from '../css/styledComponenet';
-    
+  PostListDiv,
+  PostSearchDiv,
+  PostSearch,
+  Button,
+  WhiteButton,
+  GreenButton,
+  MoreDiv,
+  GrayButton,
+  StandardModalDiv,
+} from "../css/styledComponenet";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSistrix } from '@fortawesome/free-brands-svg-icons';
-import ListCardS from './ListCardS';
-import StandardModal from '../components/StandardModal';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSistrix } from "@fortawesome/free-brands-svg-icons";
+import ListCardS from "./ListCardS";
+import StandardModal from "../components/StandardModal";
+import { useNavigate } from "react-router-dom";
 
 function PostList() {
+
+  // 화면 전환
+  const navigate = useNavigate();
+  const goWritePost = () => {
+    navigate("/writepost");
+  };
     const [modal, setModal] = useState(false);
     const [sellPosts, setSellPosts] = useState([]);
     const [bodyText, setBodyText] = useState();
 
-    const getSellPosts = async () => {
-        console.log("getSellPosts call");
-        await fetch(
-        "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/views",
-        {
-            method: "GET",
-            headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            },
-        }
-        ).then(async (data) => {
-            // json을 response에 넣는다.
-            let response = await data.json();
-            console.log(response);
-            setSellPosts(response);
-        });
-    };
 
-    useEffect(() => {
-        getSellPosts();
-    }, []);
+  const getSellPosts = async () => {
+    console.log("getSellPosts call");
+    await fetch(
+      "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/views",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      }
+    ).then(async (data) => {
+      // json을 response에 넣는다.
+      let response = await data.json();
+      console.log(response);
+      setSellPosts(response);
+    });
+  };
+
+  useEffect(() => {
+    getSellPosts();
+  }, []);
 
       // 화면 전환
     const navigate = useNavigate();
@@ -75,6 +85,7 @@ function PostList() {
             </MoreDiv>
         </PostListDiv>
     )
+
 }
 
-export default PostList
+export default PostList;

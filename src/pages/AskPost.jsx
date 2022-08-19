@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 import {
   AskSection,
   AskTitle,
@@ -12,6 +13,8 @@ import {
 
 function AskPost() {
   return (
+    <>
+    <Header></Header>
     <body style={{ margin: "auto", width: "1024px" }}>
       <p
         className="AskTitle"
@@ -88,6 +91,7 @@ function AskPost() {
         완료하기
       </button>
     </body>
+    </>
   );
 }
 
