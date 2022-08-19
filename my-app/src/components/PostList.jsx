@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom';
+import styled from "styled-components";
 import {
     PostListDiv,
     PostSearchDiv,
@@ -10,6 +12,7 @@ import {
     GrayButton,
     StandardModalDiv,
     } from '../css/styledComponenet';
+    
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSistrix } from '@fortawesome/free-brands-svg-icons';
@@ -55,10 +58,9 @@ function PostList() {
                 {modal === true ? <StandardModalDiv><StandardModal/></StandardModalDiv> : null}
                 <GreenButton onClick={() => {alert("준비중입니다");}}>글쓰기</GreenButton>
             </Button>
-            
             <hr/>
-            {sellPosts.slice(0).reverse().map(post => (
-                <ListCardS key={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time.slice(0,-17)} heart={post.recommend} price={post.price}></ListCardS>
+            {sellPosts.map(post => (
+                <ListCardS key={post.id} id={post.id} title={post.title} summary={post.text} tag={post.tag} view={post.hits} date={post.create_time.slice(0,-17)} heart={post.recommend} price={post.price}></ListCardS>
             ))}
             <MoreDiv>
                 <GrayButton>더보기</GrayButton>

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import {
     PostSection,
     PostTitleDiv,
@@ -22,29 +23,34 @@ import {
 } from '../css/PostStyle';
 import { GreenButton, } from '../css/styledComponenet';
 
-function ShowPost() {
+function ShowPost({sellpost}) {
+    const sell_XP = useParams();
+    console.log(sell_XP);
+
+    const ListLink = styled(Link)`
+    text-decoration: none;
+    `;
+
     return (
         <PostSection>
             <PostTitleDiv>
-                <h2>제가 LA에 있었을 때 일입니다..</h2>
+                <h2>{sellpost.title}</h2>
                 <ProfileDiv>
                     <ProfilePic/>
                     <Profile>
-                        <p>LA떠돌이</p>
-                        <h6>2022.07.01 · 조회 95 · 추천 50</h6>
+                        <p>{sellpost.user}</p>
+                        <h6>{sellpost.create_time} · 조회 {sellpost.hits} · 추천 {sellpost.recommend}</h6>
                     </Profile>
                 </ProfileDiv>
                 <PointDiv>
                     <Point>Point</Point>
-                    <PointPrice>7,000</PointPrice>
+                    <PointPrice>{sellpost.price}</PointPrice>
                 </PointDiv>
                 <hr/>
             </PostTitleDiv>
             <PostContentDiv>
                 <PostContent>
-                    제가 LA에 있었을 때 일입니다.<br/>
-                    한국에서 일을 하고 있던 저는 극심한 번아웃에 외국이라도 나가보자는 마음으로 무작정 LA <br/>
-                    행을 결정하게 되었습니다.<br/>
+                    {sellpost.text}<br/>
                 </PostContent>
                 <PostTag onClick={() => {alert("준비중입니다");}}>#LA</PostTag>
                 <PostTag onClick={() => {alert("준비중입니다");}}>#경험</PostTag>
@@ -64,7 +70,7 @@ function ShowPost() {
                             <BuyPreNum>10장</BuyPreNum>
                         </BuyPre>
                     </BuyPreDiv>
-                    <GreenButton><Link to="/selllist/post/1">구매하기</Link></GreenButton>
+                    <GreenButton><ListLink to={`/selllist/${sell_XP}/detail`}>구매하기</ListLink></GreenButton>
                 </PostBuy>
             </PostBuyDiv>
         </PostSection>
