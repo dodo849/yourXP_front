@@ -9,6 +9,7 @@ import SellAllPost from "./pages/SellAllPost";
 import BuyPostList from "./pages/BuyPostList";
 import BuyAllPost from "./pages/BuyAllPost";
 import MainPage from "./pages/MainPage";
+import WritePost from "./pages/WritePost";
 import MyPage from "./pages/MyPage";
 import SignUpPage from "./pages/SignUpPage";
 import SignUpMainPage from "./pages/SignUpMainPage";
@@ -26,10 +27,10 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />}></Route>
           <Route path="/selllist" element={<SellPostList />}></Route>
-          <Route path="/selllist/post" element={<SellShowPost />}></Route>
-          <Route path="/selllist/post/1" element={<SellAllPost />}></Route>
+          <Route path="/selllist/:postId" element={<SellShowPost />}></Route>
+          <Route path="/selllist/:postId/detail" element={<SellAllPost />}></Route>
           <Route path="/buylist" element={<BuyPostList />}></Route>
-          <Route path="/buylist/1" element={<BuyAllPost />}></Route>
+          <Route path="/buylist/:postId" element={<BuyAllPost />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/signupmain" element={<SignUpMainPage />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
@@ -37,6 +38,7 @@ function App() {
           <Route path="/point" element={<Point />}></Route>
           <Route path="/sellpost" element={<ChattingPage />}></Route>
           <Route path="/askpost" element={<AskPost />}></Route>
+          <Route path="/writepost" element={<WritePost />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
       </MainContainer>

@@ -81,24 +81,29 @@ function MainPage() {
     );
     // json을 response에 넣는다.
     response = await response.json();
+    if (response.images.length = 0) {
+      response.images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/450px-Flag_of_None.svg.png"]
+    }
     setSellPostTags([...sellPostTags, response]);
     console.log(sellPostTags);
   };
 
-  useEffect(() => {
-    getSellPosts();
-  }, []);
 
   // 화면 전환
   const navigate = useNavigate();
 
-  const goSellList = (userId) => {
-    navigate("/selllist");
+  const goWritePost = () => {
+    navigate("/writepost");
   };
 
-  const goAskPost = (userId) => {
+  const goAskPost = () => {
     navigate("/askpost");
   };
+
+  // 컴포넌트 로딩시 최초 1회 
+  useEffect(() => {
+    getSellPosts();
+  }, []);
 
   return (
     <>
@@ -129,23 +134,29 @@ function MainPage() {
         <RankingCards>
           {sellPosts.length == 0
             ? dummyContent.map((sellPost, index) => (
+              index < 3 &&
                 <RankingCard
                   key={index}
                   id={sellPost.id}
                   imgName={sellPost.imgName}
                   title={sellPost.title}
-                  tag={sellPost.tag}
+                  tag1={sellPost.tag}
                   rankNumber={index + 1}
+                  isApiSuccess={false}
                 ></RankingCard>
               ))
             : sellPosts.map((sellPost, index) => (
+              index < 3 &&
                 <RankingCard
                   key={sellPost.id}
                   id={sellPost.id}
-                  imgName={dummyContent[index].imgName}
+                  imgName={sellPost.images[0].image}
                   title={sellPost.title}
-                  tag={dummyContent[index].tag}
+                  tag1={sellPost.tag1}
+                  tag2={sellPost.tag2}
+                  tag3={sellPost.tag3}
                   rankNumber={index+1}
+                  isApiSuccess={true}
                 ></RankingCard>
               ))}
         </RankingCards>
@@ -153,10 +164,10 @@ function MainPage() {
 
       <RankingContent>
         <ContentIntro>
-          <ContentTitle>지금 참여해주세요</ContentTitle>
+          <ContentTitle>지금 참여해주세요!</ContentTitle>
         </ContentIntro>
         <ButtonRowGroup>
-          <FillButton onClick={() => goSellList()}>경험 들려주기</FillButton>
+          <FillButton onClick={() => goWritePost()}>경험 들려주기</FillButton>
           <LightButton onClick={() => goAskPost()}>경험 물어보기</LightButton>
         </ButtonRowGroup>
       </RankingContent>

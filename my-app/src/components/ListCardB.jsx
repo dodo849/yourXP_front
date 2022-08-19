@@ -1,4 +1,6 @@
-import React from 'react'
+import React , {useState, useEffect}from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import {
     ListInfo,
     ListText,
@@ -17,25 +19,30 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 
-function ListCardB({ title, summary, tag, view, date, price, deadline}) {
+function ListCardB({ id, title, summary, tag, view, date, price, deadline}) {
     
+    const ListLink = styled(Link)`
+    text-decoration: none;
+    `;
 
     return (
         <>
             <List>
-                <ListInfo>
-                    <ListText>
-                        <Title>{title}</Title>
-                        <Summary>{summary}</Summary>
-                        <Tag>{tag}</Tag>
-                        <Check>
-                            <h6>
-                                <FontAwesomeIcon icon={faEye} size='sm'color='#767676'/>&nbsp;{view}
-                                &nbsp;&nbsp;{date}
-                            </h6>
-                        </Check>
-                    </ListText>
-                </ListInfo>
+                <ListLink to={`/buylist/${id}`}>
+                    <ListInfo>
+                        <ListText>
+                            <Title>{title}</Title>
+                            <Summary>{summary}</Summary>
+                            <Tag>{tag}</Tag>
+                            <Check>
+                                <h6>
+                                    <FontAwesomeIcon icon={faEye} size='sm'color='#767676'/>&nbsp;{view}
+                                    &nbsp;&nbsp;{date}
+                                </h6>
+                            </Check>
+                        </ListText>
+                    </ListInfo>
+                </ListLink>
                 <ListInfo2>
                     <Price>
                         <p>Point</p>&nbsp;

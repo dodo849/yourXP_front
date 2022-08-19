@@ -78,7 +78,7 @@ export const WriteAttachment = styled.div`
 `;
 
 export const WriteAttachmentalign = styled.div`
-    flex-direction: row;
+    // flex-direction: row;
     margin-top: 8px;
 `;
 
@@ -91,7 +91,7 @@ export const WriteAttachmentBox = styled.div`
     width: 497px;
 `;
 
-export const WriteAttachmentButton = styled.button`
+export const WriteAttachmentButton = styled.div`
     display: flex;
     width: 99px;
     height: 47px;
@@ -102,7 +102,7 @@ export const WriteAttachmentButton = styled.button`
 `;
 // + 안에 글씨(찾아보기) 색 바꾸고 위치 지정하기 ok
 
-export const WriteAttachmentSaveButton = styled.button`
+export const WriteAttachmentSaveButton = styled.div`
     display: flex;
     width: 70px;
     height: 47px;
@@ -131,7 +131,7 @@ export const WritePriceBox = styled.div`
 `;
 //+ 안에 포인트 ok
 
-export const WriteCompleteButton = styled.button`
+export const WriteCompleteButton = styled.div`
     display: flex;
     width: 99px;
     height: 47px;

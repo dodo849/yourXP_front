@@ -26,12 +26,13 @@ import WriteReview from '../components/WriteReview';
 
 function SellAllPost() {
     const [sellPost, setSellPost] = useState([]);
-    const {sellXP_id} = useParams();
+    const params = useParams();
+    console.log(params.postId);
 
-    const getSellPost = async () => {
-        console.log("getSellPost call");
-        await fetch(
-        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/1`,
+    const getSellPost = () => {
+        console.log("getSellPosts call");
+        fetch(
+        `https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/${params.postId}`,
         {
             method: "GET",
             headers: {
@@ -39,23 +40,23 @@ function SellAllPost() {
             },
         }
         ).then(async (data) => {
-            // json을 response에 넣는다.
-            let response = await data.json();
-            console.log(response);
-            setSellPost(response);
+        // json을 response에 넣는다.
+        let response = await data.json();
+        console.log(response);
+        setSellPost(response);
         });
     };
 
     useEffect(() => {
         getSellPost();
     }, []);
-    
 
     const navigate = useNavigate();
 
     const goHome = () => {
         navigate('/');
     };
+    
     return (        
         <>
             <MediaDiv>
@@ -69,7 +70,7 @@ function SellAllPost() {
                             </Search>
                             <Sign>
                                 <p>로그인</p>
-                                <p >회원가입</p>
+                                <p>회원가입</p>
                             </Sign>
                         </SearchSign>  
                     </TopDiv>
@@ -80,9 +81,8 @@ function SellAllPost() {
                     </MenuInfo>
                     <NavBar/>
                 </Header>
- 
                 <Main>
-                    <ShowAllPost/>
+                    <ShowAllPost sellpost={sellPost}/>
                     <WriteReview/>
                 </Main>
             </MediaDiv>

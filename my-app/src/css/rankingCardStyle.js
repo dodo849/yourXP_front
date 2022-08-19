@@ -3,9 +3,15 @@ import styled, { keyframes } from "styled-components";
 export const Img = styled.div`
   width: 260px;
   height: 150px;
-  background-color: #767676;
+  background-color: #F5F5F5;
   border-radius: 10px;
   overflow: hidden;
+
+  img {
+    width: 260px;
+    height: 150px;
+    overflow: hidden;
+  }
 `;
 
 export const Title = styled.div`
