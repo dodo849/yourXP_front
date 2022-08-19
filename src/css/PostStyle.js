@@ -10,7 +10,7 @@ export const PostSection = styled.div`
 export const PostTitleDiv = styled.div`
     padding: 17px;
     padding-bottom: 0px;
-    font-size: 30px;
+    font-size: 27px;
     h2 {
         margin : 0px;
         margin-bottom: 15px;
