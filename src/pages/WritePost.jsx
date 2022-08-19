@@ -18,22 +18,26 @@ import {
   WritePriceBox,
   WriteCompleteButton,
 } from "../css/StyledComponent2";
+import { useLocation } from "react-router";
 
 function WritePost() {
-
   const [uploadImg, setUploadImg] = useState();
+  const location = useLocation();
+
+  console.log(`bodyText: ${location.state.bodyText}`);
 
   const reqWritePost = () => {
-
     const userName = window.sessionStorage.getItem("username");
-    console.log(uploadImg)
+    console.log(uploadImg);
+
+    const reqImg = new FormData();
 
     // request body에 데이터 담기
     let body = {
       images: [
-          {
-              image: btoa(uploadImg)
-          }
+        {
+          image: uploadImg,
+        },
       ],
       title: document.querySelector(".title"),
       text: document.querySelector(".body"),
@@ -48,30 +52,28 @@ function WritePost() {
       tag7: null,
       tag8: null,
       tag9: null,
-      tag10: null
+      tag10: null,
     };
 
-    fetch("https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/create/", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-      body: JSON.stringify(body), //json으로 변환
-    }).then(async (data) => {
+    fetch(
+      "https://port-0-yourxp-back-5faq24l6koz2gl.gksl1.cloudtype.app/sellXP/create/",
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify(body), //json으로 변환
+      }
+    ).then(async (data) => {
       // json을 response에 넣는다.
       let response = await data.json();
       console.log(response);
 
       navigate("/"); // 홈으로 이동
     });
-    
   };
 
   //api
-
-
-
-
 
   const navigate = useNavigate();
 
@@ -80,20 +82,18 @@ function WritePost() {
   console.log(imgName);
 
   const isLogin = () => {
-
     const userName = window.sessionStorage.getItem("username");
     if (userName == null) {
       alert("글을 작성하려면 로그인을 먼저 해주세요 :)");
       navigate("/login");
-      console.log(userName)
+      console.log(userName);
     }
   };
 
-  // 컴포넌트 로딩시 최초 1회 
+  // 컴포넌트 로딩시 최초 1회
   useEffect(() => {
     isLogin();
   }, []);
-
 
   return (
     <>
@@ -117,7 +117,11 @@ function WritePost() {
 
         <WriteContent>본문</WriteContent>
         <WriteContentBox>
-          <textarea id="body" placeholder="여기에 당신의 이야기를 써주세요." />
+            <textarea
+              id="body"
+              placeholder="여기에 당신의 이야기를 써주세요."
+              defaultValue={ location.state.bodyText }
+            ></textarea>
         </WriteContentBox>
 
         {/* <WriteAttachment>첨부자료</WriteAttachment> */}

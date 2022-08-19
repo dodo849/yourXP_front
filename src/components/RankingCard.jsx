@@ -23,8 +23,7 @@ function RankingCard({
   const navigate = useNavigate();
 
   const goSellPostDetail = (id) => {
-    // navigate(`/selllist/post/${id}`);
-    navigate(`/selllist/post/1`);
+    navigate(`/selllist/${id}`);
     console.log(imgName);
   };
 

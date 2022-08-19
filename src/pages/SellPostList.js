@@ -29,6 +29,10 @@ function SellPostList() {
     const goHome = () => {
         navigate('/');
     };
+
+    const goLogin = () => {
+        navigate("/login");
+      };
     
     return (
         <MediaDiv>
@@ -41,7 +45,7 @@ function SellPostList() {
                             <FontAwesomeIcon icon={faSistrix} size='lg'color='#439F68' cursor='pointer'/>
                         </Search>
                         <Sign>
-                            <p>로그인</p>
+                            <p onClick={goLogin}>로그인</p>
                             <p>회원가입</p>
                         </Sign>
                     </SearchSign>  
